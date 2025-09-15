@@ -1,26 +1,85 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f9f5f0, #e0d4c3);
+  overflow: hidden; /* evita scroll por animaciones */
 }
 
 .main-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+/* Fondo con imágenes cambiantes */
+.background-slideshow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.background-slideshow .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.3);
+  opacity: 0;
+  animation: fade 30s infinite;
+}
+
+.background-slideshow .slide1 {
+  background-image: url(../../artesano1.jpg);
+  animation-delay: 0s;
+}
+
+.background-slideshow .slide2 {
+  background-image: url(../../artesano2.jpg);
+  animation-delay: 6s;
+}
+
+.background-slideshow .slide3 {
+  background-image: url(../../artesano3.jpg);
+  animation-delay: 12s;
+}
+
+.background-slideshow .slide4 {
+  background-image: url(../../artesano4.jpg);
+  animation-delay: 18s;
+}
+
+.background-slideshow .slide5 {
+  background-image: url(../../artesano5.jpg);
+  animation-delay: 24s;
+}
+
+@keyframes fade {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Caja de login */
 .login-box {
-  background-color: white;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.9);
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   max-width: 400px;
+  width: 100%;
   text-align: center;
 }
 
+/* Estilos existentes que ya tenías */
 .title {
   font-size: 2rem;
   margin-bottom: 10px;

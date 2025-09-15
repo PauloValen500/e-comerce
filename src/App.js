@@ -3,6 +3,14 @@ import './App.css';
 function App() {
   return (
     <div className="main-container">
+      <div className="background-slideshow">
+        <div className="slide slide1"></div>
+        <div className="slide slide2"></div>
+        <div className="slide slide3"></div>
+        <div className="slide slide4"></div>
+        <div className="slide slide5"></div>
+      </div>
+
       <div className="login-box">
         <h1 className="title">ShopLocal</h1>
         <p className="subtitle">Conecta con el talento artesanal</p>
@@ -20,4 +28,3 @@ function App() {
 }
 
 export default App;
-
