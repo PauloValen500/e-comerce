@@ -128,3 +128,58 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+
+/* Vista tablet */
+@media (max-width: 768px) {
+  .login-box {
+    max-width: 70%;
+    padding: 30px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+/* Vista móvil */
+@media (max-width: 480px) {
+  body {
+    overflow: auto; /* Permite hacer scroll si el contenido es más alto que la pantalla */
+  }
+
+  .login-box {
+    max-width: 60%;
+    padding: 38px;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.9rem;
+    padding: 9px;
+    
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+}
+
