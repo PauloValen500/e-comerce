@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/navbar";
 import "./Perfil.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
   const [usuario, setUsuario] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const navigate = useNavigate();
 
   const usuarioLocal = JSON.parse(localStorage.getItem("usuario"));
   const usuario_id = usuarioLocal?.usuario_id;
 
-  // 🔹 Cargar datos del usuario al montar el componente
+  // 🔹 Cargar datos del usuario
   useEffect(() => {
     const fetchUsuario = async () => {
       if (!usuario_id) return;
@@ -26,7 +29,6 @@ export default function Perfil() {
         );
 
         const data = await res.json();
-
         if (res.ok && data.usuario) {
           setUsuario(data.usuario);
         } else {
@@ -42,7 +44,7 @@ export default function Perfil() {
     fetchUsuario();
   }, [usuario_id]);
 
-  // 🔹 Manejo de cambios en inputs
+  // 🔹 Manejo de cambios
   const handleChange = (e) => {
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
@@ -60,7 +62,6 @@ export default function Perfil() {
       );
 
       const data = await res.json();
-
       if (res.ok) {
         alert("✅ Perfil actualizado correctamente");
         setEditMode(false);
@@ -70,6 +71,38 @@ export default function Perfil() {
     } catch (err) {
       console.error("Error al actualizar perfil:", err);
       alert("No se pudo conectar con el servidor");
+    }
+  };
+
+  // 🔹 Eliminar cuenta
+  const handleDelete = async () => {
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      setTimeout(() => setConfirmDelete(false), 5000); // Se cancela si no confirma en 5s
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        "https://it5owt6uxj.execute-api.us-east-2.amazonaws.com/prod/perfil/delete-perfil",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ usuario_id }),
+        }
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("🗑️ Tu cuenta ha sido eliminada correctamente.");
+        localStorage.removeItem("usuario");
+        navigate("/login");
+      } else {
+        alert("⚠️ No se pudo eliminar la cuenta: " + (data.error || "Error desconocido"));
+      }
+    } catch (err) {
+      console.error("Error al eliminar cuenta:", err);
+      alert("Error de conexión con el servidor");
     }
   };
 
@@ -119,6 +152,13 @@ export default function Perfil() {
                 Editar Perfil
               </button>
             )}
+
+            <button
+              className={`perfil-btn delete ${confirmDelete ? "confirm" : ""}`}
+              onClick={handleDelete}
+            >
+              {confirmDelete ? "Confirmar eliminación" : "Eliminar Cuenta"}
+            </button>
           </div>
         </div>
       </div>
