@@ -63,7 +63,7 @@ export default function Perfil() {
 
       const data = await res.json();
       if (res.ok) {
-        alert("✅ Perfil actualizado correctamente");
+        alert("Perfil actualizado correctamente");
         setEditMode(false);
       } else {
         alert("Error al actualizar perfil: " + (data.error || "Error desconocido"));
