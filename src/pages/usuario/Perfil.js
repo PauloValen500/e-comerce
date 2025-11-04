@@ -66,7 +66,7 @@ export default function Perfil() {
         alert("✅ Perfil actualizado correctamente");
         setEditMode(false);
       } else {
-        alert("⚠️ Error al actualizar perfil: " + (data.error || "Error desconocido"));
+        alert("Error al actualizar perfil: " + (data.error || "Error desconocido"));
       }
     } catch (err) {
       console.error("Error al actualizar perfil:", err);
@@ -86,7 +86,7 @@ export default function Perfil() {
       const res = await fetch(
         "https://it5owt6uxj.execute-api.us-east-2.amazonaws.com/prod/perfil/delete-perfil",
         {
-          method: "POST",
+          method: "DELETE",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ usuario_id }),
         }
@@ -94,11 +94,11 @@ export default function Perfil() {
 
       const data = await res.json();
       if (res.ok) {
-        alert("🗑️ Tu cuenta ha sido eliminada correctamente.");
+        alert("Tu cuenta ha sido eliminada correctamente.");
         localStorage.removeItem("usuario");
         navigate("/login");
       } else {
-        alert("⚠️ No se pudo eliminar la cuenta: " + (data.error || "Error desconocido"));
+        alert("No se pudo eliminar la cuenta: " + (data.error || "Error desconocido"));
       }
     } catch (err) {
       console.error("Error al eliminar cuenta:", err);
