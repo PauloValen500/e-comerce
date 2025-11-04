@@ -1,0 +1,169 @@
+:root {
+  --color-light: #F8FAFC;
+  --color-background: #E2E8F0;
+  --color-dark: #1E293B;
+  --color-accent: #3B82F6;
+  --color-accent-light: #93C5FD;
+  --color-text: #334155;
+  --color-white: #FFFFFF;
+}
+
+/* ===== ANIMACIÓN DE ENTRADA ===== */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.perfil-container {
+  margin-top: 120px;
+  padding: 2.5rem;
+  max-width: 750px;
+  margin-inline: auto;
+  background: linear-gradient(180deg, var(--color-white) 80%, var(--color-light));
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeSlideIn 0.7s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.perfil-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(59, 130, 246, 0.15);
+}
+
+/* ===== ENCABEZADO CON LÍNEA DECORATIVA ===== */
+.perfil-container h2 {
+  text-align: center;
+  color: var(--color-dark);
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.6px;
+  position: relative;
+}
+
+.perfil-container h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  animation: fadeSlideIn 1s ease;
+}
+
+/* ===== SECCIÓN DE INFORMACIÓN ===== */
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeSlideIn 1s ease;
+}
+
+/* ===== CAMPOS ===== */
+.perfil-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.perfil-field label {
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
+}
+
+.perfil-field p {
+  color: var(--color-text);
+  background-color: var(--color-light);
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--color-background);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.perfil-field p:hover {
+  background-color: var(--color-background);
+  transform: translateX(4px);
+}
+
+/* ===== INPUTS EN MODO EDICIÓN ===== */
+.perfil-field input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-background);
+  border-radius: 10px;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.perfil-field input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-light);
+  background-color: var(--color-white);
+  transform: scale(1.02);
+}
+
+/* ===== BOTONES ===== */
+.perfil-btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.perfil-btn.edit {
+  background: linear-gradient(90deg, var(--color-accent-light), var(--color-accent));
+  color: var(--color-white);
+}
+
+.perfil-btn.save {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-dark));
+  color: var(--color-white);
+}
+
+.perfil-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== PEQUEÑA ANIMACIÓN AL HACER CLICK ===== */
+.perfil-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .perfil-container {
+    padding: 1.8rem;
+    margin-top: 100px;
+  }
+
+  .perfil-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .perfil-btn {
+    font-size: 0.95rem;
+  }
+}

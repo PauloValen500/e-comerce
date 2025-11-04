@@ -23,24 +23,26 @@ export default function Login() {
       const data = await response.json();
       console.log("🔍 Respuesta del servidor:", data); // 👀 Para depuración
 
-      if (response.ok) {
-        if (data.message === "Login exitoso") {
-          const tipo = data.usuario.tipo_usuario;
+      if (response.ok && data.usuario) {
+        const usuario = {
+          usuario_id: data.usuario.usuario_id,
+          nombre: data.usuario.nombre,
+          apellido: data.usuario.apellido,
+          email: data.usuario.email,
+          tipo_usuario: data.usuario.tipo_usuario,
+        };
 
-          // 🔹 Guardar datos del usuario en localStorage
-          localStorage.setItem("usuario", JSON.stringify(data.usuario));
+        // 🔹 Guardar datos del usuario en localStorage
+        localStorage.setItem("usuario", JSON.stringify(usuario));
 
-          // 🔹 Redirigir según tipo de usuario
-          if (tipo === "admin") {
-            navigate("/admin");
-          } else {
-            navigate("/catalogo");
-          }
+        // 🔹 Redirigir según tipo de usuario
+        if (usuario.tipo_usuario === "admin") {
+          navigate("/admin");
         } else {
-          setError("Correo o contraseña incorrectos.");
+          navigate("/catalogo");
         }
       } else {
-        setError("Error al iniciar sesión.");
+        setError("Correo o contraseña incorrectos.");
       }
     } catch (err) {
       console.error("❌ Error de conexión:", err);
@@ -59,7 +61,7 @@ export default function Login() {
       </div>
 
       <div className="login-box">
-        <h1 className="title">Raiz Oaxaca</h1>
+        <h1 className="title">Raíz Oaxaca</h1>
         <p className="subtitle">Conecta con el talento artesanal</p>
 
         <form className="login-form" onSubmit={handleSubmit}>
