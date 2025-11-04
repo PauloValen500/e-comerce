@@ -1,18 +1,20 @@
 /* ==== PALETA DE COLORES REFINADA ==== */
 :root {
-  --brown-dark: #4B2E14;
-  --brown-medium: #8C6239;
-  --accent: #FF9D00;
-  --background: #FFF9F3;
-  --text-dark: #2C2C2C;
+  --color-light: #F8FAFC;        /* Fondo principal claro */
+  --color-background: #E2E8F0;   /* Fondo secundario sutil */
+  --color-dark: #1E293B;         /* Azul oscuro (texto principal, botones) */
+  --color-accent: #3B82F6;       /* Azul medio moderno */
+  --color-accent-light: #93C5FD; /* Azul claro para efectos */
+  --color-text: #334155;         /* Gris azulado para texto */
+  --color-white: #FFFFFF;        /* Blanco puro */
 }
 
 /* ==== ESTILOS BASE ==== */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: var(--text-dark);
-  background-color: var(--background);
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 /* ==== CONTENEDOR PRINCIPAL ==== */
@@ -30,9 +32,9 @@ body {
   justify-content: space-between;
   padding: 4rem 2rem;
   gap: 3rem;
-  background-color: var(--brown-dark);
-  color: #fff;
-  border-bottom: 4px solid var(--accent);
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border-bottom: 4px solid var(--color-accent);
 }
 
 .hero-text h1 {
@@ -65,23 +67,24 @@ body {
 }
 
 .btn-signup {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 .btn-signup:hover {
-  background-color: #e98d00;
+  background-color: var(--color-accent-light);
+  color: var(--color-dark);
 }
 
 .btn-login {
   background-color: transparent;
-  border: 2px solid var(--accent);
-  color: var(--accent);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn-login:hover {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* ==== IMAGEN HERO ==== */
@@ -105,11 +108,11 @@ body {
   gap: 2rem;
   padding: 4rem 2rem;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 .feature-card {
-  background-color: var(--background);
+  background-color: var(--color-light);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   padding: 2rem;
@@ -127,12 +130,12 @@ body {
 .feature-card h3 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: var(--brown-medium);
+  color: var(--color-dark);
 }
 
 .feature-card p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--color-text);
 }
 
 /* ==== FOOTER ==== */
@@ -140,7 +143,7 @@ body {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
-  background-color: var(--brown-dark);
-  color: #fff;
+  background-color: var(--color-dark);
+  color: var(--color-white);
   opacity: 0.9;
 }

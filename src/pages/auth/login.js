@@ -59,7 +59,7 @@ export default function Login() {
       </div>
 
       <div className="login-box">
-        <h1 className="title">ShopLocal</h1>
+        <h1 className="title">Raiz Oaxaca</h1>
         <p className="subtitle">Conecta con el talento artesanal</p>
 
         <form className="login-form" onSubmit={handleSubmit}>

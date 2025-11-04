@@ -1,19 +1,24 @@
-/* Paleta de colores del proyecto */
+/* 🎨 Paleta de colores fríos */
 :root {
-  --brown-dark: #7B542F;
-  --brown-medium: #B6771D;
-  --orange: #FF9D00;
-  --yellow-light: #FFCF71;
-  --white: #fff;
+  --color-light: #F8FAFC;        /* Fondo principal claro */
+  --color-background: #E2E8F0;   /* Fondo secundario sutil */
+  --color-dark: #1E293B;         /* Azul oscuro (texto principal, botones) */
+  --color-accent: #3B82F6;       /* Azul medio moderno */
+  --color-accent-light: #93C5FD; /* Azul claro para efectos */
+  --color-text: #334155;         /* Gris azulado para texto */
+  --color-white: #FFFFFF;        /* Blanco puro */
 }
 
-/* Reset */
+/* 🔄 Reset */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   overflow: hidden; /* evita scroll por animaciones */
+  background: linear-gradient(135deg, var(--color-light), var(--color-background));
+  color: var(--color-text);
 }
 
+/* 🌌 Contenedor principal */
 .main-container {
   position: relative;
   display: flex;
@@ -22,7 +27,7 @@ body {
   height: 100vh;
 }
 
-/* Fondo con imágenes cambiantes */
+/* 🖼 Fondo con imágenes cambiantes */
 .background-slideshow {
   position: absolute;
   top: 0; left: 0;
@@ -43,6 +48,7 @@ body {
   animation: fade 30s infinite;
 }
 
+/* 🔁 Imágenes de fondo */
 .background-slideshow .slide1 { background-image: url(../../imgs/artesano1.jpg); animation-delay: 0s; }
 .background-slideshow .slide2 { background-image: url(../../imgs/artesano2.jpg); animation-delay: 6s; }
 .background-slideshow .slide3 { background-image: url(../../imgs/artesano3.jpg); animation-delay: 12s; }
@@ -57,44 +63,44 @@ body {
   100% { opacity: 0; }
 }
 
-/* Caja de login */
+/* 🧊 Caja de login */
 .login-box {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   padding: 45px 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   max-width: 420px;
   width: 100%;
   text-align: center;
-  backdrop-filter: blur(5px);
-  border: 2px solid var(--brown-medium);
+  backdrop-filter: blur(6px);
+  border: 2px solid var(--color-accent-light);
   animation: float 6s ease-in-out infinite;
 }
 
-/* Sutil efecto flotante */
+/* ✨ Efecto flotante */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
-/* Título y subtítulo */
+/* 🩵 Título y subtítulo */
 .title {
   font-size: 2.4rem;
   margin-bottom: 8px;
   font-weight: 900;
-  color: var(--brown-dark);
+  color: var(--color-dark);
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-size: 1rem;
   margin-bottom: 2rem;
-  color: var(--brown-medium);
+  color: var(--color-accent);
 }
 
-/* Formulario */
+/* 🧾 Formulario */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -105,64 +111,64 @@ body {
 .login-form input {
   width: 90%;
   padding: 0.9rem;
-  border: 2px solid var(--brown-medium);
+  border: 2px solid var(--color-accent-light);
   border-radius: 12px;
   font-size: 1rem;
   background: rgba(255,255,255,0.85);
   outline: none;
   transition: all 0.3s ease;
-  color: var(--brown-dark);
+  color: var(--color-dark);
 }
 
 .login-form input::placeholder {
-  color: #bba98f;
+  color: #94A3B8;
 }
 
 .login-form input:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 12px rgba(255,157,0,0.4);
-  background: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 12px rgba(59,130,246,0.4);
+  background: var(--color-white);
 }
 
-/* Botón */
+/* 🔘 Botón */
 .login-form button {
   width: 85%;
   padding: 0.9rem 0;
-  background: linear-gradient(90deg, var(--orange), var(--yellow-light));
-  color: var(--brown-dark);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  color: var(--color-white);
   border: none;
   border-radius: 12px;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(255,157,0,0.4);
+  box-shadow: 0 6px 15px rgba(59,130,246,0.4);
 }
 
 .login-form button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255,157,0,0.6);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.6);
 }
 
-/* Texto inferior */
+/* 🧷 Texto inferior */
 .footer-text {
   margin-top: 1.2rem;
   font-size: 0.9rem;
-  color: var(--brown-medium);
+  color: var(--color-text);
 }
 
 .footer-text a {
-  color: var(--orange);
+  color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .footer-text a:hover {
-  color: var(--yellow-light);
+  color: var(--color-accent-light);
 }
 
-/* Responsivo */
+/* 📱 Responsivo */
 @media (max-width: 768px) {
   .login-box {
     max-width: 75%;
