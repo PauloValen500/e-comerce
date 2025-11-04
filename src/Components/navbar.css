@@ -1,0 +1,143 @@
+:root {
+  --color-light: #F8FAFC;
+  --color-background: #E2E8F0;
+  --color-dark: #1E293B;
+  --color-accent: #3B82F6;
+  --color-accent-light: #93C5FD;
+  --color-text: #334155;
+  --color-white: #FFFFFF;
+}
+
+/* 🔹 Contenedor principal */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.8rem 0; /* Se reduce padding vertical */
+}
+
+/* 🔹 Contenido centrado y con márgenes laterales */
+.navbar-content {
+  width: 100%;
+  padding: 0 2rem; /* Añade margen interno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🔹 Logo */
+.navbar-logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--color-accent);
+}
+
+/* 🔹 Contenedor derecho (botones) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* 🔹 Botones generales */
+.navbar-btn {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar-btn:hover {
+  color: var(--color-accent);
+}
+
+.navbar-icon {
+  font-size: 1.3rem;
+}
+
+/* 🔹 Menú desplegable perfil */
+.profile-menu {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+  z-index: 10;
+}
+
+.dropdown button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown button:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-dark);
+}
+
+/* 🔹 Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Responsividad */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+
+  .navbar-btn {
+    font-size: 0.9rem;
+  }
+
+  .navbar-icon {
+    font-size: 1.1rem;
+  }
+}

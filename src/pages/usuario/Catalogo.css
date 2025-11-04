@@ -1,124 +1,126 @@
-/* ==== PALETA DE COLORES REFINADA ==== */
-:root {
-  --brown-dark: #4B2E14;
-  --brown-medium: #8C6239;
-  --accent: #FF9D00;
-  --background: #FFF9F3;
-  --text-dark: #2C2C2C;
-  --white: #FFFFFF;
-}
-
-/* ==== CONTENEDOR PRINCIPAL ==== */
 .catalogo-container {
-  padding: 3rem 2rem;
+  background-color: var(--color-background);
   min-height: 100vh;
-  background-color: var(--background);
-  color: var(--text-dark);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
 }
 
-/* ==== TÍTULO ==== */
-.catalogo-titulo {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  color: var(--brown-dark);
-  letter-spacing: 0.5px;
-}
-
-/* ==== FILTROS ==== */
-.filtros {
+/* ===== Header ===== */
+.catalogo-header {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
 }
 
-.filtros select {
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.1);
+.catalogo-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* ===== Buscador ===== */
+.catalogo-busqueda {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-accent-light);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.catalogo-busqueda input {
+  border: none;
+  outline: none;
+  background: transparent;
   font-size: 1rem;
-  background-color: var(--white);
-  color: var(--text-dark);
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: var(--color-dark);
 }
 
-.filtros select:hover {
-  border-color: var(--accent);
+.icono-buscar {
+  color: var(--color-accent);
 }
 
-/* ==== GRID DE PRODUCTOS ==== */
-.productos-grid {
+/* ===== Grid de productos ===== */
+.catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-/* ==== TARJETA DE PRODUCTO ==== */
+/* ===== Card ===== */
 .producto-card {
-  background-color: var(--white);
-  border-radius: 14px;
+  background-color: var(--color-white);
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .producto-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
 }
 
-/* ==== IMAGEN ==== */
+/* Imagen del producto */
 .producto-imagen {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
 
-/* ==== INFORMACIÓN ==== */
+/* Información del producto */
 .producto-info {
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  padding: 1rem;
 }
 
-.producto-nombre {
+.producto-info h2 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--brown-medium);
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
 }
 
-.producto-descripcion {
+.producto-info p {
   font-size: 0.95rem;
-  color: #555;
-  flex-grow: 1;
-  line-height: 1.4;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+/* Footer del producto */
+.producto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .producto-precio {
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--accent);
+  color: var(--color-accent);
+  font-size: 1.1rem;
 }
 
-/* ==== BOTÓN ==== */
-.producto-boton {
-  background-color: var(--accent);
-  color: #fff;
+/* Botón comprar */
+.btn-comprar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
   border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
 }
 
-.producto-boton:hover {
-  background-color: #e98d00;
-  transform: translateY(-2px);
+.btn-comprar:hover {
+  background-color: var(--color-accent-light);
+}
+
+.icono-carrito {
+  font-size: 1rem;
 }
