@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from 'react-oidc-context';
 
 const cognitoAuthConfig = {
-  authority: "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_wp37WSCul", // dominio del Hosted UI (el que ves en 'Inicio de sesión administrado')
+  authority: "https://us-east-2wp37wscul.auth.us-east-2.amazoncognito.com", // dominio del Hosted UI (el que ves en 'Inicio de sesión administrado')
   client_id: "4nr6lj99hvjlid4nl62reognu0",
-  redirect_uri: "https://d84l1y8p4kdic.cloudfront.net", // o "http://localhost:3000" si pruebas loca "https://d84l1y8p4kdic.cloudfront.net"
+  redirect_uri: "https://main.d23x4f38qcy3mi.amplifyapp.com", // o "http://localhost:3000" si pruebas loca "https://main.d23x4f38qcy3mi.amplifyapp.com"
   response_type: "code",
   scope: "email openid phone",
 };

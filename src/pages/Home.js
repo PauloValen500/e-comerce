@@ -1,7 +1,18 @@
 import React from "react";
 import "./Home.css";
+import { useAuth } from "react-oidc-context";
 
 function Home() {
+  const auth = useAuth();
+
+  const handleLogin = () => {
+    auth.signinRedirect(); // 🔐 Abre el login de Cognito
+  };
+
+  const handleSignup = () => {
+    auth.signinRedirect(); // 🔐 Puedes usar el mismo flujo para registro (Cognito incluye registro)
+  };
+
   return (
     <div className="home-container">
       {/* Sección Hero */}
@@ -10,16 +21,16 @@ function Home() {
           <h1>Raíz Oaxaca</h1>
           <p>Conectando nuestras raíces con el corazón de Oaxaca</p>
           <div className="hero-buttons">
-            <button className="btn-signup" onClick={() => window.location.href="/signup"}>
+            <button className="btn-signup" onClick={handleSignup}>
               Crear cuenta
             </button>
-            <button className="btn-login" onClick={() => window.location.href="/login"}>
+            <button className="btn-login" onClick={handleLogin}>
               Iniciar sesión
             </button>
           </div>
         </div>
         <div className="hero-image">
-          {<img src="/imgs/artesano1.jpg" alt="Raíz Oaxaca"/>}
+          <img src="/imgs/artesano1.jpg" alt="Raíz Oaxaca" />
         </div>
       </section>
 
