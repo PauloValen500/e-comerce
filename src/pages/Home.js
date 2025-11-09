@@ -13,7 +13,7 @@ function Home() {
 
 
   const handleSignup = () => {
-    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com"; // 👈 igual que en Cognito
+    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
     //const redirectUrl = "http://localhost:3000";
     auth.signinRedirect({ redirect_uri: redirectUrl });
   };
