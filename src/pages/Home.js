@@ -6,8 +6,8 @@ function Home() {
   const auth = useAuth();
 
   const handleLogin = () => {
-    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com"; // 👈 igual que en Cognito
-    //const redirectUrl = "http://localhost:3000"; // 👈 igual que en Cognito
+    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
+    //const redirectUrl = "http://localhost:3000/catalogo"; // 👈 igual que en Cognito
     auth.signinRedirect({ redirect_uri: redirectUrl });
   };
 
