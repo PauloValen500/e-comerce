@@ -6,12 +6,16 @@ function Home() {
   const auth = useAuth();
 
   const handleLogin = () => {
-    auth.signinRedirect(); // 🔐 Abre el login de Cognito
+    const redirectUrl = "http://localhost:3000"; // 👈 igual que en Cognito
+    auth.signinRedirect({ redirect_uri: redirectUrl });
   };
 
+
   const handleSignup = () => {
-    auth.signinRedirect(); // 🔐 Puedes usar el mismo flujo para registro (Cognito incluye registro)
+    const redirectUrl = "http://localhost:3000";
+    auth.signinRedirect({ redirect_uri: redirectUrl });
   };
+
 
   return (
     <div className="home-container">
