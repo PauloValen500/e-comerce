@@ -1,14 +1,29 @@
+// src/hooks/useUsuario.js
 import { useAuth } from "react-oidc-context";
-import Usuario from "../Models/Usuario";
+import { Cliente } from "../Models/Cliente";
+import { Administrador } from "../Models/Admin";
 
-export const useUsuario = () => {
+export function useUsuario() {
   const auth = useAuth();
 
-  if (!auth.user) return null;
+  if (!auth?.user) return null;
 
-  const profile = auth.user.profile;
-  const idToken = auth.user.id_token;
-  const accessToken = auth.user.access_token;
+  // 🔐 Extraemos los tokens disponibles
+  let { profile, id_token, access_token, expires_at } = auth.user;
 
-  return new Usuario(profile, idToken, accessToken);
-};
+  // 🧠 Fallback automático para modo local o pruebas
+  // Si no hay id_token (a veces pasa en local), usa access_token
+  if (!id_token && access_token) {
+    console.warn("⚠️ id_token no disponible, usando access_token como fallback temporal.");
+    id_token = access_token;
+  }
+
+  const tokens = { id_token, access_token, expires_at };
+
+  // 👥 Roles
+  const grupos = profile["cognito:groups"] || ["cliente"];
+
+  // Retornamos la instancia correspondiente
+  if (grupos.includes("admin")) return new Administrador(profile, tokens);
+  return new Cliente(profile, tokens);
+}

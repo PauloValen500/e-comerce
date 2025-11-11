@@ -6,17 +6,22 @@ function Home() {
   const auth = useAuth();
 
   const handleLogin = () => {
-    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
-    //const redirectUrl = "http://localhost:3000/catalogo"; // 👈 igual que en Cognito
+    //const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
+    const redirectUrl = "http://localhost:3000/signin"; // 👈 igual que en Cognito
     auth.signinRedirect({ redirect_uri: redirectUrl });
   };
 
 
   const handleSignup = () => {
-    const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
-    //const redirectUrl = "http://localhost:3000";
-    auth.signinRedirect({ redirect_uri: redirectUrl });
+    const domain = "https://us-east-2wp37wscul.auth.us-east-2.amazoncognito.com";
+    const clientId = "4nr6lj99hvjlid4nl62reognu0";
+    const redirectUrl = "http://localhost:3000/signin"; // 👈 igual al redirect_uri configurado
+
+    const signupUrl = `${domain}/signup?client_id=${clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${encodeURIComponent(redirectUrl)}`;
+
+    window.location.href = signupUrl;
   };
+
 
 
   return (

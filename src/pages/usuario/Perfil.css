@@ -1,193 +1,73 @@
-:root {
-  --color-light: #F8FAFC;
-  --color-background: #E2E8F0;
-  --color-dark: #1E293B;
-  --color-accent: #3B82F6;
-  --color-accent-light: #93C5FD;
-  --color-text: #334155;
-  --color-white: #FFFFFF;
-}
-
-/* ===== ANIMACIÓN DE ENTRADA ===== */
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== CONTENEDOR PRINCIPAL ===== */
 .perfil-container {
-  margin-top: 120px;
-  padding: 2.5rem;
-  max-width: 750px;
-  margin-inline: auto;
-  background: linear-gradient(180deg, var(--color-white) 80%, var(--color-light));
-  border-radius: 18px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-  animation: fadeSlideIn 0.7s ease;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-background);
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.perfil-container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 35px rgba(59, 130, 246, 0.15);
-}
-
-/* ===== ENCABEZADO CON LÍNEA DECORATIVA ===== */
 .perfil-container h2 {
   text-align: center;
   color: var(--color-dark);
-  font-size: 1.9rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  letter-spacing: 0.6px;
-  position: relative;
+  margin-bottom: 1rem;
 }
 
-.perfil-container h2::after {
-  content: "";
+.perfil-form label {
   display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--color-accent);
-  margin: 10px auto 0;
-  border-radius: 2px;
-  animation: fadeSlideIn 1s ease;
-}
-
-/* ===== SECCIÓN DE INFORMACIÓN ===== */
-.perfil-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  animation: fadeSlideIn 1s ease;
-}
-
-/* ===== CAMPOS ===== */
-.perfil-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.perfil-field label {
-  font-weight: 600;
+  margin-bottom: 1rem;
   color: var(--color-dark);
-  font-size: 0.95rem;
-  letter-spacing: 0.4px;
-  transition: color 0.3s ease;
 }
 
-.perfil-field p {
-  color: var(--color-text);
-  background-color: var(--color-light);
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--color-background);
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.perfil-field p:hover {
-  background-color: var(--color-background);
-  transform: translateX(4px);
-}
-
-/* ===== INPUTS EN MODO EDICIÓN ===== */
-.perfil-field input {
+.perfil-form input {
   width: 100%;
-  padding: 10px 14px;
-  border: 1.5px solid var(--color-background);
-  border-radius: 10px;
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  font-size: 0.95rem;
-  transition: all 0.25s ease;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: #fff;
 }
 
-.perfil-field input:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 10px var(--color-accent-light);
-  background-color: var(--color-white);
-  transform: scale(1.02);
+.perfil-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* ===== BOTONES ===== */
-.perfil-btn {
-  margin-top: 2rem;
-  width: 100%;
-  padding: 14px 0;
-  font-size: 1rem;
-  font-weight: 600;
+.btn-editar,
+.btn-guardar,
+.btn-cancelar {
+  padding: 0.7rem 1.5rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 0.6rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
+  font-weight: bold;
 }
 
-.perfil-btn.edit {
-  background: linear-gradient(90deg, var(--color-accent-light), var(--color-accent));
-  color: var(--color-white);
+.btn-editar {
+  background-color: var(--color-accent);
+  color: white;
 }
 
-.perfil-btn.save {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-dark));
-  color: var(--color-white);
+.btn-guardar {
+  background-color: #16a34a;
+  color: white;
 }
 
-.perfil-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+.btn-cancelar {
+  background-color: #dc2626;
+  color: white;
 }
 
-/* ===== PEQUEÑA ANIMACIÓN AL HACER CLICK ===== */
-.perfil-btn:active {
-  transform: scale(0.98);
-  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.2);
+.mensaje {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.perfil-btn.delete {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  margin-top: 0.8rem;
-  transition: all 0.3s ease;
-}
-
-.perfil-btn.delete:hover {
-  background-color: #dc2626; /* Rojo fuerte dentro de la paleta */
-  transform: translateY(-2px);
-}
-
-.perfil-btn.delete.confirm {
-  background-color: #ef4444; /* Rojo claro */
-  animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-}
-
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .perfil-container {
-    padding: 1.8rem;
-    margin-top: 100px;
-  }
-
-  .perfil-container h2 {
-    font-size: 1.6rem;
-  }
-
-  .perfil-btn {
-    font-size: 0.95rem;
-  }
+.error {
+  color: red;
+  text-align: center;
 }
