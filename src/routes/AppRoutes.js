@@ -9,26 +9,51 @@ import RequireAuth from "../Components/RequireAuth";
 import SignInRedirect from "../pages/auth/SignInRedirect";
 import SignUpRedirect from "../pages/auth/SignUpRedirect";
 import SignOutRedirect from "../pages/auth/SignOutRedirect";
+import DashboardLayout from "../Components/DashboardLayout";
 
 export default function AppRoutes() {
   return (
     <Router>
       <Routes>
-        {/* Públicas */}
+        {/* Públicas (landing y callbacks de auth) */}
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignInRedirect />} />
-        <Route path="/login"  element={<SignInRedirect />} /> {/* alias */}
+        <Route path="/login" element={<SignInRedirect />} /> {/* alias */}
         <Route path="/signup" element={<SignUpRedirect />} />
         <Route path="/logout" element={<SignOutRedirect />} />
 
-        {/* Protegidas */}
-        <Route path="/catalogo" element={<RequireAuth><Catalogo /></RequireAuth>} />
-        <Route path="/perfil"   element={<RequireAuth><Perfil /></RequireAuth>} />
+        {/* Área protegida con layout (sidebar + hamburguesa) */}
+        <Route
+          element={
+            <RequireAuth>
+              <DashboardLayout />
+            </RequireAuth>
+          }
+        >
+          {/* Usuario autenticado */}
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/perfil" element={<Perfil />} />
 
-        {/* Solo admin */}
-        <Route path="/categoria"    element={<RequireAuth groups={["admin"]}><Categoria /></RequireAuth>} />
-        <Route path="/departamento" element={<RequireAuth groups={["admin"]}><Departamento /></RequireAuth>} />
+          {/* Solo admin (chequeo extra de grupos) */}
+          <Route
+            path="/categoria"
+            element={
+              <RequireAuth groups={["admin"]}>
+                <Categoria />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/departamento"
+            element={
+              <RequireAuth groups={["admin"]}>
+                <Departamento />
+              </RequireAuth>
+            }
+          />
+        </Route>
 
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
