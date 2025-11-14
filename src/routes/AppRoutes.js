@@ -11,6 +11,14 @@ import SignUpRedirect from "../pages/auth/SignUpRedirect";
 import SignOutRedirect from "../pages/auth/SignOutRedirect";
 import DashboardLayout from "../Components/DashboardLayout";
 
+// Importar las vistas de productos por categoría
+import ProductoCategoria from "../pages/usuario/productos/ProductoCategoria";
+import ProductosBlusas from "../pages/usuario/productos/ProductosBlusas";
+import ProductosRebozos from "../pages/usuario/productos/ProductosRebozos";
+import ProductosGuayaberas from "../pages/usuario/productos/ProductosGuayaberas";
+import ProductosFaldas from "../pages/usuario/productos/ProductosFaldas";
+import ProductosQuechquemitl from "../pages/usuario/productos/ProductosQuechquemitl";
+
 export default function AppRoutes() {
   return (
     <Router>
@@ -33,6 +41,14 @@ export default function AppRoutes() {
           {/* Usuario autenticado */}
           <Route path="/catalogo" element={<Catalogo />} />
           <Route path="/perfil" element={<Perfil />} />
+
+          {/* Rutas de productos por categoría */}
+          <Route path="/productos/categoria" element={<ProductoCategoria />} />
+          <Route path="/productos/blusas" element={<ProductosBlusas />} />
+          <Route path="/productos/rebozos" element={<ProductosRebozos />} />
+          <Route path="/productos/guayaberas" element={<ProductosGuayaberas />} />
+          <Route path="/productos/faldas" element={<ProductosFaldas />} />
+          <Route path="/productos/quechquemitl" element={<ProductosQuechquemitl />} />
 
           {/* Solo admin (chequeo extra de grupos) */}
           <Route
