@@ -1,73 +1,83 @@
-import { ArrowRight,Package, MapPin, Scissors, Sparkles } from 'lucide-react';
+// UserCategoria.jsx - ACTUALIZADO con navegación correcta
+
+import { ArrowRight, Package, MapPin, Scissors, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './UserCategoria.css';
 
 export default function UserCategoria() {
+  const navigate = useNavigate();
+
   const categorias = [
     {
       id: 1,
       nombre: 'Huipiles',
+      ruta: '/productos/huipiles',
       descripcion: 'Prendas tradicionales bordadas a mano con técnicas ancestrales zapotecas. Cada huipil cuenta una historia única.',
       imagen: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=600&fit=crop',
       totalProductos: 5,
-      rangoPrecios: '$2,850 - $3,200',
-      tecnicas: ['Bordado a mano', 'Bordado en realce'],
+      rangoPrecios: '$2,650 - $3,500',
+      tecnicas: ['Bordado a mano', 'Bordado en realce', 'Telar de pedal'],
       coloresDisponibles: 6
     },
     {
       id: 2,
       nombre: 'Blusas Bordadas',
+      ruta: '/productos/blusas',
       descripcion: 'Blusas istmeñas con flores bordadas tradicionales. Cada pieza representa la belleza y tradición de las tehuanas oaxaqueñas.',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=600&fit=crop',
-      totalProductos: 6,
-      rangoPrecios: '$2,100 - $2,450',
-      tecnicas: ['Bordado de flores', 'Bordado con cadeneta'],
+      totalProductos: 5,
+      rangoPrecios: '$1,950 - $2,450',
+      tecnicas: ['Bordado de flores', 'Bordado con cadeneta', 'Bordado a máquina'],
       coloresDisponibles: 8
     },
     {
       id: 3,
       nombre: 'Rebozos',
+      ruta: '/productos/rebozos',
       descripcion: 'Rebozos tejidos en telar de pedal con diseños tradicionales. Elaborados con algodón 100% y técnicas transmitidas por generaciones.',
       imagen: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=600&fit=crop',
       totalProductos: 5,
-      rangoPrecios: '$1,650 - $1,850',
-      tecnicas: ['Telar de pedal', 'Telar de cintura'],
+      rangoPrecios: '$1,650 - $1,950',
+      tecnicas: ['Telar de cintura', 'Tinte natural', 'Urdimbre jaspeada'],
       coloresDisponibles: 5
     },
     {
       id: 4,
       nombre: 'Guayaberas',
+      ruta: '/productos/guayaberas',
       descripcion: 'Guayaberas de lino artesanales con detalles bordados. Elegancia y tradición oaxaqueña en cada puntada.',
       imagen: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=600&fit=crop',
       totalProductos: 5,
-      rangoPrecios: '$1,950 - $2,400',
-      tecnicas: ['Bordado artesanal'],
-      coloresDisponibles: 3
+      rangoPrecios: '$1,800 - $2,200',
+      tecnicas: ['Bordado artesanal', 'Confección tradicional'],
+      coloresDisponibles: 5
     },
     {
       id: 5,
       nombre: 'Faldas',
+      ruta: '/productos/faldas',
       descripcion: 'Faldas de enredo tradicionales tejidas con diseños vibrantes. Elaboradas con lana natural y tintes vegetales.',
       imagen: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=600&fit=crop',
       totalProductos: 5,
-      rangoPrecios: '$1,850 - $2,200',
-      tecnicas: ['Telar de pedal'],
+      rangoPrecios: '$1,750 - $2,100',
+      tecnicas: ['Telar de pedal', 'Brocado', 'Tintes naturales'],
       coloresDisponibles: 7
     },
     {
       id: 6,
       nombre: 'Quechquémitl',
+      ruta: '/productos/quechquemitl',
       descripcion: 'Prenda tradicional ceremonial con bordado zapoteco. Tejida en telar de cintura con técnica de brocado ancestral.',
       imagen: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&h=600&fit=crop',
-      totalProductos: 4,
-      rangoPrecios: '$2,200 - $2,600',
-      tecnicas: ['Telar de cintura con brocado'],
+      totalProductos: 5,
+      rangoPrecios: '$1,850 - $2,300',
+      tecnicas: ['Telar de cintura con brocado', 'Bordado tradicional'],
       coloresDisponibles: 4
     }
   ];
 
-  const handleNavigateCategoria = (categoriaId) => {
-    console.log(`Navegando a categoría: ${categoriaId}`);
-    // Aquí iría la navegación real a los productos de esa categoría
+  const handleNavigateCategoria = (ruta) => {
+    navigate(ruta);
   };
 
   return (
@@ -90,7 +100,7 @@ export default function UserCategoria() {
             <div 
               key={categoria.id} 
               className="user-categoria__category-card"
-              onClick={() => handleNavigateCategoria(categoria.id)}
+              onClick={() => handleNavigateCategoria(categoria.ruta)}
             >
               <div className="user-categoria__category-image-wrapper">
                 <img 
@@ -99,7 +109,6 @@ export default function UserCategoria() {
                   className="user-categoria__category-image"
                 />
                 <div className="user-categoria__category-overlay">
-                  <span className="user-categoria__category-icon">{categoria.icono}</span>
                   <h2 className="user-categoria__category-label">{categoria.nombre}</h2>
                 </div>
               </div>
@@ -140,7 +149,7 @@ export default function UserCategoria() {
                 <button 
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleNavigateCategoria(categoria.id);
+                    handleNavigateCategoria(categoria.ruta);
                   }}
                   className="user-categoria__category-btn"
                 >

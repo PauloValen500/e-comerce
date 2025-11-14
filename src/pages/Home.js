@@ -1,7 +1,29 @@
 import React from "react";
 import "./Home.css";
+import { useAuth } from "react-oidc-context";
 
 function Home() {
+  const auth = useAuth();
+
+  const handleLogin = () => {
+    //const redirectUrl = "https://main.d23x4f38qcy3mi.amplifyapp.com/catalogo"; // 👈 igual que en Cognito
+    const redirectUrl = "http://localhost:3000/signin"; // 👈 igual que en Cognito
+    auth.signinRedirect({ redirect_uri: redirectUrl });
+  };
+
+
+  const handleSignup = () => {
+    const domain = "https://us-east-2wp37wscul.auth.us-east-2.amazoncognito.com";
+    const clientId = "4nr6lj99hvjlid4nl62reognu0";
+    const redirectUrl = "http://localhost:3000/signin"; // 👈 igual al redirect_uri configurado
+
+    const signupUrl = `${domain}/signup?client_id=${clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${encodeURIComponent(redirectUrl)}`;
+
+    window.location.href = signupUrl;
+  };
+
+
+
   return (
     <div className="home-container">
       {/* Sección Hero */}
@@ -10,16 +32,16 @@ function Home() {
           <h1>Raíz Oaxaca</h1>
           <p>Conectando nuestras raíces con el corazón de Oaxaca</p>
           <div className="hero-buttons">
-            <button className="btn-signup" onClick={() => window.location.href="/signup"}>
+            <button className="btn-signup" onClick={handleSignup}>
               Crear cuenta
             </button>
-            <button className="btn-login" onClick={() => window.location.href="/login"}>
+            <button className="btn-login" onClick={handleLogin}>
               Iniciar sesión
             </button>
           </div>
         </div>
         <div className="hero-image">
-          {<img src="/imgs/artesano1.jpg" alt="Raíz Oaxaca"/>}
+          <img src="/imgs/artesano1.jpg" alt="Raíz Oaxaca" />
         </div>
       </section>
 
