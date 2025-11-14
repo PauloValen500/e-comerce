@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Plus, Edit, Trash2, Search, X, Tag, ShoppingBag, Package, MapPin, Scissors, Sparkles } from 'lucide-react';
-import './AdminCategorias.css';
+import { Plus, Edit, Trash2, Search, X, Tag, ShoppingBag, Package, MapPin, Scissors, Sparkles, Eye, EyeOff } from 'lucide-react';
 
 export default function AdminCategorias() {
   const [categorias, setCategorias] = useState([
-    { id: 1, nombre: 'Mujer', activo: true, totalProductos: 18 },
-    { id: 2, nombre: 'Hombre', activo: true, totalProductos: 12 }
+    { id: 1, nombre: 'Huipiles', activo: true, totalProductos: 5, descripcion: 'Prendas tradicionales bordadas' },
+    { id: 2, nombre: 'Blusas Bordadas', activo: true, totalProductos: 6, descripcion: 'Blusas istmeñas con bordado floral' },
+    { id: 3, nombre: 'Rebozos', activo: true, totalProductos: 5, descripcion: 'Rebozos tejidos en telar de cintura' },
+    { id: 4, nombre: 'Guayaberas', activo: true, totalProductos: 5, descripcion: 'Guayaberas de lino artesanales' },
+    { id: 5, nombre: 'Faldas', activo: true, totalProductos: 5, descripcion: 'Faldas de enredo tradicionales' },
+    { id: 6, nombre: 'Quechquémitl', activo: true, totalProductos: 4, descripcion: 'Prenda tradicional ceremonial' }
   ]);
 
-  const [productos, setProductos] = useState([
+  const [productos] = useState([
     {
       id: 1,
       nombre: 'Huipil Bordado Teotitlán',
@@ -16,138 +19,106 @@ export default function AdminCategorias() {
       precio: 2850,
       stock: 5,
       activo: true,
+      departamento: 'Mujer',
       categoriaId: 1,
-      categoriaNombre: 'Mujer',
-      departamento: 'Huipiles',
+      categoriaNombre: 'Huipiles',
       tecnica: 'Bordado a mano',
       origen: 'Teotitlán del Valle',
       materiales: 'Algodón, hilo de seda',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Huipil+Bordado+Teotitlán'
+      imagen: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=800&fit=crop'
     },
     {
       id: 2,
-      nombre: 'Camisa Bordada Oaxaca',
-      descripcion: 'Camisa tradicional con bordado geométrico',
-      precio: 1850,
-      stock: 8,
-      activo: true,
-      categoriaId: 2,
-      categoriaNombre: 'Hombre',
-      departamento: 'Bordados',
-      tecnica: 'Bordado punto de cruz',
-      origen: 'San Antonino Castillo Velasco',
-      materiales: 'Manta de algodón',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Camisa+Bordada+Oaxaca'
-    },
-    {
-      id: 3,
-      nombre: 'Huipil Zapoteco Negro',
-      descripcion: 'Huipil ceremonial con bordado tradicional zapoteco',
-      precio: 3200,
-      stock: 3,
-      activo: true,
-      categoriaId: 1,
-      categoriaNombre: 'Mujer',
-      departamento: 'Huipiles',
-      tecnica: 'Bordado tradicional',
-      origen: 'Yalalag',
-      materiales: 'Terciopelo, hilo metálico',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Huipil+Zapoteco+Negro'
-    },
-    {
-      id: 4,
-      nombre: 'Rebozo de Algodón',
-      descripcion: 'Rebozo tejido en telar de pedal con diseños tradicionales',
-      precio: 1650,
-      stock: 6,
-      activo: true,
-      categoriaId: 1,
-      categoriaNombre: 'Mujer',
-      departamento: 'Rebozos',
-      tecnica: 'Telar de pedal',
-      origen: 'Santo Tomás Jalieza',
-      materiales: 'Algodón 100%',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Rebozo+de+Algodón'
-    },
-    {
-      id: 5,
-      nombre: 'Guayabera Bordada',
-      descripcion: 'Guayabera tradicional con detalles bordados',
-      precio: 1950,
-      stock: 7,
-      activo: true,
-      categoriaId: 2,
-      categoriaNombre: 'Hombre',
-      departamento: 'Bordados',
-      tecnica: 'Bordado artesanal',
-      origen: 'Oaxaca de Juárez',
-      materiales: 'Lino, hilo de algodón',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Guayabera+Bordada'
-    },
-    {
-      id: 6,
       nombre: 'Blusa Tehuana Roja',
       descripcion: 'Blusa tradicional istmeña con flores bordadas',
       precio: 2450,
       stock: 4,
       activo: true,
-      categoriaId: 1,
-      categoriaNombre: 'Mujer',
-      departamento: 'Bordados',
+      departamento: 'Mujer',
+      categoriaId: 2,
+      categoriaNombre: 'Blusas Bordadas',
       tecnica: 'Bordado de flores',
       origen: 'Juchitán de Zaragoza',
       materiales: 'Satín, hilo de colores',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Blusa+Tehuana+Roja'
+      imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     },
     {
-      id: 7,
-      nombre: 'Camisa Artesanal Blanca',
-      descripcion: 'Camisa de manta con bordado minimalista',
-      precio: 1550,
-      stock: 0,
-      activo: false,
-      categoriaId: 2,
-      categoriaNombre: 'Hombre',
-      departamento: 'Bordados',
-      tecnica: 'Bordado simple',
-      origen: 'San Antonino',
-      materiales: 'Manta de algodón',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Camisa+Artesanal+Blanca'
+      id: 3,
+      nombre: 'Rebozo de Algodón Azul',
+      descripcion: 'Rebozo tejido en telar de pedal con diseños tradicionales',
+      precio: 1650,
+      stock: 6,
+      activo: true,
+      departamento: 'Mujer',
+      categoriaId: 3,
+      categoriaNombre: 'Rebozos',
+      tecnica: 'Telar de pedal',
+      origen: 'Santo Tomás Jalieza',
+      materiales: 'Algodón 100%',
+      imagen: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=800&fit=crop'
     },
     {
-      id: 8,
-      nombre: 'Enredo Zapoteco',
-      descripcion: 'Falda tradicional zapoteca tejida a mano',
-      precio: 2100,
+      id: 4,
+      nombre: 'Guayabera Bordada Blanca',
+      descripcion: 'Guayabera tradicional con detalles bordados',
+      precio: 1950,
+      stock: 7,
+      activo: true,
+      departamento: 'Hombre',
+      categoriaId: 4,
+      categoriaNombre: 'Guayaberas',
+      tecnica: 'Bordado artesanal',
+      origen: 'Oaxaca de Juárez',
+      materiales: 'Lino, hilo de algodón',
+      imagen: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=800&fit=crop'
+    },
+    {
+      id: 5,
+      nombre: 'Falda de Enredo Multicolor',
+      descripcion: 'Falda tradicional tejida con diseños vibrantes',
+      precio: 1850,
       stock: 5,
       activo: true,
-      categoriaId: 1,
-      categoriaNombre: 'Mujer',
-      departamento: 'Textiles para el Hogar',
-      tecnica: 'Tejido en telar',
+      departamento: 'Mujer',
+      categoriaId: 5,
+      categoriaNombre: 'Faldas',
+      tecnica: 'Telar de pedal',
       origen: 'Teotitlán del Valle',
-      materiales: 'Lana virgen',
-      imagen: 'https://placehold.co/800x800/e8f4f8/0369a1?text=Enredo+Zapoteco'
-    }
+      materiales: 'Lana natural, tintes vegetales',
+      imagen: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=800&fit=crop'
+    },
+    {
+      id: 6,
+      nombre: 'Quechquémitl Ceremonial',
+      descripcion: 'Quechquémitl tradicional con bordado zapoteco',
+      precio: 2200,
+      stock: 3,
+      activo: true,
+      departamento: 'Mujer',
+      categoriaId: 6,
+      categoriaNombre: 'Quechquémitl',
+      tecnica: 'Telar de cintura con brocado',
+      origen: 'Lambityeco',
+      materiales: 'Algodón natural, hilos de colores',
+      imagen: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&h=800&fit=crop'
+    },
   ]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [detalleModalOpen, setDetalleModalOpen] = useState(false);
-  const [stockModalOpen, setStockModalOpen] = useState(false);
   const [editingCat, setEditingCat] = useState(null);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [selectedCategoria, setSelectedCategoria] = useState('todas');
   const [searchTerm, setSearchTerm] = useState('');
-  const [formData, setFormData] = useState({ nombre: '', activo: true });
-  const [stockForm, setStockForm] = useState({ stock: 0, activo: true });
+  const [formData, setFormData] = useState({ nombre: '', descripcion: '', activo: true });
 
   const handleOpenModal = (cat = null) => {
     if (cat) {
       setEditingCat(cat);
-      setFormData({ nombre: cat.nombre, activo: cat.activo });
+      setFormData({ nombre: cat.nombre, descripcion: cat.descripcion, activo: cat.activo });
     } else {
       setEditingCat(null);
-      setFormData({ nombre: '', activo: true });
+      setFormData({ nombre: '', descripcion: '', activo: true });
     }
     setModalOpen(true);
   };
@@ -155,7 +126,7 @@ export default function AdminCategorias() {
   const handleCloseModal = () => {
     setModalOpen(false);
     setEditingCat(null);
-    setFormData({ nombre: '', activo: true });
+    setFormData({ nombre: '', descripcion: '', activo: true });
   };
 
   const handleSubmit = () => {
@@ -187,26 +158,10 @@ export default function AdminCategorias() {
     setDetalleModalOpen(true);
   };
 
-  const handleGestionarStock = (producto) => {
-    setProductoSeleccionado(producto);
-    setStockForm({ stock: producto.stock, activo: producto.activo });
-    setStockModalOpen(true);
-  };
-
-  const handleActualizarStock = () => {
-    setProductos(productos.map(p => 
-      p.id === productoSeleccionado.id 
-        ? { ...p, ...stockForm }
-        : p
-    ));
-    setStockModalOpen(false);
-    setProductoSeleccionado(null);
-  };
-
   const filteredProductos = productos.filter(p => {
     const matchCategoria = selectedCategoria === 'todas' || p.categoriaId === parseInt(selectedCategoria);
     const matchSearch = p.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                       p.departamento.toLowerCase().includes(searchTerm.toLowerCase());
+                       p.categoriaNombre.toLowerCase().includes(searchTerm.toLowerCase());
     return matchCategoria && matchSearch;
   });
 
@@ -218,118 +173,179 @@ export default function AdminCategorias() {
   };
 
   return (
-    <div className="admin-categorias">
-      <div className="admin-categorias__header">
-        <div className="admin-categorias__header-content">
-          <div className="admin-categorias__header-flex">
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, var(--color-light), var(--color-background))' }}>
+      {/* Header */}
+      <div style={{ background: 'var(--color-white)', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', borderBottom: '1px solid var(--color-background)' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <h1 className="admin-categorias__title">Gestión de Categorías</h1>
-              <p className="admin-categorias__subtitle">Administra las categorías y visualiza productos asociados</p>
+              <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: 0 }}>
+                Gestión de Categorías
+              </h1>
+              <p style={{ marginTop: '0.25rem', fontSize: '0.875rem', color: 'var(--color-text)' }}>
+                Productos organizados por categorías
+              </p>
             </div>
-            <button onClick={() => handleOpenModal()} className="admin-categorias__btn-new">
-              <Plus className="w-5 h-5" />
+            <button onClick={() => handleOpenModal()} style={{
+              display: 'flex', alignItems: 'center', gap: '0.5rem',
+              background: 'linear-gradient(to right, var(--color-accent), #2563eb)',
+              color: 'var(--color-white)', padding: '0.75rem 1.5rem',
+              borderRadius: '0.5rem', border: 'none', cursor: 'pointer',
+              boxShadow: '0 4px 6px rgba(59, 130, 246, 0.2)', transition: 'all 0.3s'
+            }}>
+              <Plus size={20} />
               Nueva Categoría
             </button>
           </div>
         </div>
       </div>
 
-      <div className="admin-categorias__main">
-        <div className="admin-categorias__stats">
-          <div className="admin-categorias__stat-card">
-            <div className="admin-categorias__stat-flex">
+      {/* Main Content */}
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem' }}>
+        {/* Stats */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1.5rem', transition: 'transform 0.3s' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p className="admin-categorias__stat-label">Total Categorías</p>
-                <p className="admin-categorias__stat-value admin-categorias__stat-value--purple">{statsData.totalCategorias}</p>
+                <p style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--color-text)', margin: 0 }}>Total Categorías</p>
+                <p style={{ fontSize: '1.875rem', fontWeight: 'bold', marginTop: '0.5rem', marginBottom: 0, color: 'var(--color-dark)' }}>{statsData.totalCategorias}</p>
               </div>
-              <div className="admin-categorias__stat-icon admin-categorias__stat-icon--purple">
-                <Tag />
+              <div style={{ padding: '0.75rem', borderRadius: '0.5rem', background: 'var(--color-background)' }}>
+                <Tag size={32} color="var(--color-dark)" />
               </div>
             </div>
           </div>
 
-          <div className="admin-categorias__stat-card">
-            <div className="admin-categorias__stat-flex">
+          <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p className="admin-categorias__stat-label">Categorías Activas</p>
-                <p className="admin-categorias__stat-value admin-categorias__stat-value--green">{statsData.categoriasActivas}</p>
+                <p style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--color-text)', margin: 0 }}>Categorías Activas</p>
+                <p style={{ fontSize: '1.875rem', fontWeight: 'bold', marginTop: '0.5rem', marginBottom: 0, color: '#10b981' }}>{statsData.categoriasActivas}</p>
               </div>
-              <div className="admin-categorias__stat-icon admin-categorias__stat-icon--green">
-                <Tag />
+              <div style={{ padding: '0.75rem', borderRadius: '0.5rem', background: '#d1fae5' }}>
+                <Tag size={32} color="#10b981" />
               </div>
             </div>
           </div>
 
-          <div className="admin-categorias__stat-card">
-            <div className="admin-categorias__stat-flex">
+          <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p className="admin-categorias__stat-label">Total Productos</p>
-                <p className="admin-categorias__stat-value admin-categorias__stat-value--blue">{statsData.totalProductos}</p>
+                <p style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--color-text)', margin: 0 }}>Total Productos</p>
+                <p style={{ fontSize: '1.875rem', fontWeight: 'bold', marginTop: '0.5rem', marginBottom: 0, color: 'var(--color-accent)' }}>{statsData.totalProductos}</p>
               </div>
-              <div className="admin-categorias__stat-icon admin-categorias__stat-icon--blue">
-                <ShoppingBag />
+              <div style={{ padding: '0.75rem', borderRadius: '0.5rem', background: 'var(--color-accent-light)', opacity: 0.3 }}>
+                <ShoppingBag size={32} color="var(--color-accent)" />
               </div>
             </div>
           </div>
 
-          <div className="admin-categorias__stat-card">
-            <div className="admin-categorias__stat-flex">
+          <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p className="admin-categorias__stat-label">Productos Activos</p>
-                <p className="admin-categorias__stat-value admin-categorias__stat-value--teal">{statsData.productosActivos}</p>
+                <p style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--color-text)', margin: 0 }}>Productos Activos</p>
+                <p style={{ fontSize: '1.875rem', fontWeight: 'bold', marginTop: '0.5rem', marginBottom: 0, color: '#06b6d4' }}>{statsData.productosActivos}</p>
               </div>
-              <div className="admin-categorias__stat-icon admin-categorias__stat-icon--teal">
-                <ShoppingBag />
+              <div style={{ padding: '0.75rem', borderRadius: '0.5rem', background: '#cffafe' }}>
+                <ShoppingBag size={32} color="#06b6d4" />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="admin-categorias__grid">
+        {/* Layout Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth >= 1024 ? '300px 1fr' : '1fr', gap: '1.5rem' }}>
+          {/* Sidebar */}
           <div>
-            <div className="admin-categorias__sidebar">
-              <h3 className="admin-categorias__sidebar-title">Categorías</h3>
-              <div className="admin-categorias__category-list">
+            <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1.5rem' }}>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: '0 0 1rem 0' }}>
+                Categorías
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <button
                   onClick={() => setSelectedCategoria('todas')}
-                  className={`admin-categorias__category-btn ${selectedCategoria === 'todas' ? 'admin-categorias__category-btn--active' : ''}`}
+                  style={{
+                    width: '100%', textAlign: 'left', padding: '0.75rem 1rem',
+                    borderRadius: '0.5rem', border: 'none', cursor: 'pointer',
+                    background: selectedCategoria === 'todas' ? 'linear-gradient(135deg, var(--color-accent-light), var(--color-accent))' : 'var(--color-light)',
+                    color: selectedCategoria === 'todas' ? 'var(--color-white)' : 'var(--color-text)',
+                    fontWeight: selectedCategoria === 'todas' ? 600 : 400,
+                    boxShadow: selectedCategoria === 'todas' ? '0 2px 8px rgba(59, 130, 246, 0.25)' : 'none',
+                    transition: 'all 0.3s'
+                  }}
                 >
-                  <div className="admin-categorias__category-btn-flex">
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <span>Todas las categorías</span>
-                    <span className="admin-categorias__category-count">{productos.length}</span>
+                    <span style={{
+                      fontSize: '0.875rem',
+                      background: selectedCategoria === 'todas' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.8)',
+                      color: selectedCategoria === 'todas' ? 'var(--color-white)' : 'var(--color-text)',
+                      padding: '0.25rem 0.5rem', borderRadius: '0.25rem', fontWeight: 600
+                    }}>
+                      {productos.length}
+                    </span>
                   </div>
                 </button>
                 
                 {categorias.map((cat) => (
-                  <div key={cat.id} className="admin-categorias__category-item">
+                  <div key={cat.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <button
                       onClick={() => setSelectedCategoria(cat.id.toString())}
-                      className={`admin-categorias__category-btn ${selectedCategoria === cat.id.toString() ? 'admin-categorias__category-btn--active' : ''}`}
+                      style={{
+                        width: '100%', textAlign: 'left', padding: '0.75rem 1rem',
+                        borderRadius: '0.5rem', border: 'none', cursor: 'pointer',
+                        background: selectedCategoria === cat.id.toString() ? 'linear-gradient(135deg, var(--color-accent-light), var(--color-accent))' : 'var(--color-light)',
+                        color: selectedCategoria === cat.id.toString() ? 'var(--color-white)' : 'var(--color-text)',
+                        fontWeight: selectedCategoria === cat.id.toString() ? 600 : 400,
+                        boxShadow: selectedCategoria === cat.id.toString() ? '0 2px 8px rgba(59, 130, 246, 0.25)' : 'none',
+                        transition: 'all 0.3s'
+                      }}
                     >
-                      <div className="admin-categorias__category-btn-flex">
-                        <div className="admin-categorias__category-name">
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <span>{cat.nombre}</span>
-                          {!cat.activo && <span className="admin-categorias__category-badge">Inactiva</span>}
+                          {!cat.activo && <span style={{ fontSize: '0.75rem', background: 'rgba(255, 255, 255, 0.6)', color: 'var(--color-text)', padding: '0.125rem 0.5rem', borderRadius: '0.25rem' }}>Inactiva</span>}
                         </div>
-                        <span className="admin-categorias__category-count">
+                        <span style={{
+                          fontSize: '0.875rem',
+                          background: selectedCategoria === cat.id.toString() ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.8)',
+                          color: selectedCategoria === cat.id.toString() ? 'var(--color-white)' : 'var(--color-text)',
+                          padding: '0.25rem 0.5rem', borderRadius: '0.25rem', fontWeight: 600
+                        }}>
                           {productos.filter(p => p.categoriaId === cat.id).length}
                         </span>
                       </div>
                     </button>
                     
-                    <div className="admin-categorias__category-actions">
-                      <button onClick={() => handleOpenModal(cat)} className="admin-categorias__action-btn admin-categorias__action-btn--edit">
-                        <Edit className="w-3 h-3" />
+                    <div style={{ display: 'flex', gap: '0.5rem', padding: '0 0.5rem' }}>
+                      <button onClick={() => handleOpenModal(cat)} style={{
+                        flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem',
+                        fontSize: '0.75rem', padding: '0.5rem 0.75rem', borderRadius: '0.375rem',
+                        border: 'none', cursor: 'pointer', background: 'rgba(59, 130, 246, 0.1)',
+                        color: 'var(--color-accent)', fontWeight: 500, transition: 'all 0.3s'
+                      }}>
+                        <Edit size={12} />
                         Editar
                       </button>
                       <button
                         onClick={() => handleToggleActive(cat.id)}
-                        className={`admin-categorias__action-btn ${cat.activo ? 'admin-categorias__action-btn--toggle' : 'admin-categorias__action-btn--activate'}`}
+                        style={{
+                          flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: '0.75rem', padding: '0.5rem 0.75rem', borderRadius: '0.375rem',
+                          border: 'none', cursor: 'pointer',
+                          background: cat.activo ? 'rgba(245, 158, 11, 0.1)' : 'rgba(16, 185, 129, 0.1)',
+                          color: cat.activo ? '#f59e0b' : '#10b981',
+                          fontWeight: 500, transition: 'all 0.3s'
+                        }}
                       >
-                        {cat.activo ? 'Desactivar' : 'Activar'}
+                        {cat.activo ? <EyeOff size={12} /> : <Eye size={12} />}
                       </button>
-                      <button onClick={() => handleDelete(cat.id)} className="admin-categorias__action-btn admin-categorias__action-btn--delete">
-                        <Trash2 className="w-3 h-3" />
+                      <button onClick={() => handleDelete(cat.id)} style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        padding: '0.5rem', borderRadius: '0.375rem', border: 'none', cursor: 'pointer',
+                        background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', transition: 'all 0.3s'
+                      }}>
+                        <Trash2 size={12} />
                       </button>
                     </div>
                   </div>
@@ -338,61 +354,115 @@ export default function AdminCategorias() {
             </div>
           </div>
 
-          <div className="admin-categorias__products">
-            <div className="admin-categorias__search-box">
-              <div className="admin-categorias__search-wrapper">
-                <Search className="admin-categorias__search-icon" />
+          {/* Products Section */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {/* Search */}
+            <div style={{ background: 'var(--color-white)', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)', padding: '1rem' }}>
+              <div style={{ position: 'relative' }}>
+                <Search style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-text)', opacity: 0.5 }} size={20} />
                 <input
                   type="text"
-                  placeholder="Buscar productos por nombre o departamento..."
+                  placeholder="Buscar productos por nombre o categoría..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="admin-categorias__search-input"
+                  style={{
+                    width: '93%', padding: '0.75rem 1rem 0.75rem 2.5rem',
+                    border: '1px solid var(--color-background)', borderRadius: '0.5rem',
+                    fontSize: '1rem', color: 'var(--color-text)'
+                  }}
                 />
               </div>
             </div>
 
-            <div className="admin-categorias__products-grid">
+            {/* Products Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
               {filteredProductos.map((producto) => (
-                <div key={producto.id} className="admin-categorias__product-card">
-                  <div className="admin-categorias__product-image-wrapper">
-                    <img src={producto.imagen} alt={producto.nombre} className="admin-categorias__product-image" />
-                    <div className="admin-categorias__product-badges">
-                      <span className={`admin-categorias__product-badge ${producto.stock > 0 ? 'admin-categorias__product-badge--stock' : 'admin-categorias__product-badge--out'}`}>
+                <div
+                  key={producto.id}
+                  style={{
+                    background: 'var(--color-white)', borderRadius: '0.75rem',
+                    boxShadow: '0 1px 3px rgba(30, 41, 59, 0.1)', border: '1px solid var(--color-background)',
+                    overflow: 'hidden', transition: 'all 0.3s', cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 10px 15px rgba(30, 41, 59, 0.15)';
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(30, 41, 59, 0.1)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <div style={{ position: 'relative', height: '14rem', overflow: 'hidden', background: 'var(--color-light)' }}>
+                    <img src={producto.imagen} alt={producto.nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                      <span style={{
+                        padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.75rem',
+                        fontWeight: 600, backdropFilter: 'blur(10px)',
+                        background: producto.stock > 0 ? 'rgba(16, 185, 129, 0.9)' : 'rgba(239, 68, 68, 0.9)',
+                        color: 'var(--color-white)'
+                      }}>
                         {producto.stock > 0 ? `Stock: ${producto.stock}` : 'AGOTADO'}
                       </span>
-                      <span className="admin-categorias__product-badge admin-categorias__product-badge--category">
-                        {producto.categoriaNombre}
+                      <span style={{
+                        padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.75rem',
+                        fontWeight: 600, backdropFilter: 'blur(10px)',
+                        background: 'rgba(59, 130, 246, 0.9)', color: 'var(--color-white)'
+                      }}>
+                        {producto.departamento}
                       </span>
                     </div>
                   </div>
 
-                  <div className="admin-categorias__product-body">
-                    <span className="admin-categorias__product-dept">{producto.departamento}</span>
-                    <h3 className="admin-categorias__product-name">{producto.nombre}</h3>
-                    <p className="admin-categorias__product-desc">{producto.descripcion}</p>
+                  <div style={{ padding: '1.25rem' }}>
+                    <span style={{
+                      fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-accent)',
+                      background: 'rgba(59, 130, 246, 0.1)', padding: '0.25rem 0.5rem',
+                      borderRadius: '0.25rem', display: 'inline-block'
+                    }}>
+                      {producto.categoriaNombre}
+                    </span>
+                    
+                    <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: '0.5rem 0 0.25rem 0' }}>
+                      {producto.nombre}
+                    </h3>
+                    
+                    <p style={{
+                      fontSize: '0.875rem', color: 'var(--color-text)', marginBottom: '0.75rem',
+                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'
+                    }}>
+                      {producto.descripcion}
+                    </p>
 
-                    <div className="admin-categorias__product-details">
-                      <div className="admin-categorias__product-detail">
-                        <span className="admin-categorias__product-detail-label">Técnica:</span>
-                        <span className="admin-categorias__product-detail-value">{producto.tecnica}</span>
+                    <div style={{
+                      display: 'flex', flexDirection: 'column', gap: '0.5rem',
+                      marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid var(--color-background)'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                        <span style={{ color: 'var(--color-text)' }}>Técnica:</span>
+                        <span style={{ fontWeight: 500, color: 'var(--color-dark)', textAlign: 'right' }}>{producto.tecnica}</span>
                       </div>
-                      <div className="admin-categorias__product-detail">
-                        <span className="admin-categorias__product-detail-label">Origen:</span>
-                        <span className="admin-categorias__product-detail-value">{producto.origen}</span>
-                      </div>
-                      <div className="admin-categorias__product-detail">
-                        <span className="admin-categorias__product-detail-label">Materiales:</span>
-                        <span className="admin-categorias__product-detail-value">{producto.materiales}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                        <span style={{ color: 'var(--color-text)' }}>Origen:</span>
+                        <span style={{ fontWeight: 500, color: 'var(--color-dark)', textAlign: 'right' }}>{producto.origen}</span>
                       </div>
                     </div>
 
-                    <div className="admin-categorias__product-footer">
-                      <div className="admin-categorias__product-price-wrapper">
-                        <p className="admin-categorias__product-price">${producto.precio.toLocaleString('es-MX')}</p>
-                        <p className="admin-categorias__product-currency">MXN</p>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div>
+                        <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--color-accent)', margin: 0 }}>
+                          ${producto.precio.toLocaleString('es-MX')}
+                        </p>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--color-text)', opacity: 0.7, margin: 0 }}>MXN</p>
                       </div>
-                      <button onClick={() => handleVerDetalles(producto)} className="admin-categorias__product-btn">
+                      <button
+                        onClick={() => handleVerDetalles(producto)}
+                        style={{
+                          background: 'rgba(59, 130, 246, 0.1)', color: 'var(--color-accent)',
+                          padding: '0.5rem 1rem', borderRadius: '0.5rem', border: 'none',
+                          cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600, transition: 'all 0.3s'
+                        }}
+                      >
                         Ver Detalles
                       </button>
                     </div>
@@ -402,10 +472,12 @@ export default function AdminCategorias() {
             </div>
 
             {filteredProductos.length === 0 && (
-              <div className="admin-categorias__empty">
-                <ShoppingBag className="admin-categorias__empty-icon" />
-                <h3 className="admin-categorias__empty-title">No se encontraron productos</h3>
-                <p className="admin-categorias__empty-text">Intenta con otro filtro o término de búsqueda</p>
+              <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+                <ShoppingBag size={64} color="var(--color-background)" style={{ margin: '0 auto 1rem auto' }} />
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-dark)', margin: '0 0 0.5rem 0' }}>
+                  No se encontraron productos
+                </h3>
+                <p style={{ color: 'var(--color-text)', margin: 0 }}>Intenta con otro filtro o término de búsqueda</p>
               </div>
             )}
           </div>
@@ -414,48 +486,105 @@ export default function AdminCategorias() {
 
       {/* Modal Categoría */}
       {modalOpen && (
-        <div className="admin-categorias__modal-overlay">
-          <div className="admin-categorias__modal">
-            <div className="admin-categorias__modal-header">
-              <h2 className="admin-categorias__modal-title">{editingCat ? 'Editar Categoría' : 'Nueva Categoría'}</h2>
-              <button onClick={handleCloseModal} className="admin-categorias__modal-close">
-                <X className="w-6 h-6" />
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(30, 41, 59, 0.5)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '1rem', zIndex: 50, backdropFilter: 'blur(4px)'
+        }}>
+          <div style={{
+            background: 'var(--color-white)', borderRadius: '1rem',
+            boxShadow: '0 25px 50px rgba(30, 41, 59, 0.3)', maxWidth: '32rem', width: '100%'
+          }}>
+            <div style={{
+              background: 'var(--color-white)', borderBottom: '1px solid var(--color-background)',
+              padding: '1rem 1.5rem', display: 'flex', alignItems: 'center',
+              justifyContent: 'space-between', borderRadius: '1rem 1rem 0 0'
+            }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: 0 }}>
+                {editingCat ? 'Editar Categoría' : 'Nueva Categoría'}
+              </h2>
+              <button onClick={handleCloseModal} style={{
+                color: 'var(--color-text)', background: 'none', border: 'none',
+                cursor: 'pointer', padding: 0, transition: 'color 0.3s'
+              }}>
+                <X size={24} />
               </button>
             </div>
 
-            <div className="admin-categorias__modal-body">
-              <div className="admin-categorias__form-group">
-                <label className="admin-categorias__form-label">Nombre de Categoría *</label>
+            <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-dark)', marginBottom: '0.5rem' }}>
+                  Nombre de Categoría *
+                </label>
                 <input
                   type="text"
                   required
                   value={formData.nombre}
                   onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                  className="admin-categorias__form-input"
-                  placeholder="Ej: Mujer, Hombre, Unisex..."
+                  style={{
+                    width: '100%', padding: '0.75rem 1rem', border: '1px solid var(--color-background)',
+                    borderRadius: '0.5rem', fontSize: '1rem', color: 'var(--color-text)'
+                  }}
+                  placeholder="Ej: Huipiles, Blusas Bordadas, Rebozos..."
                 />
               </div>
 
-              <div className="admin-categorias__checkbox-group">
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-dark)', marginBottom: '0.5rem' }}>
+                  Descripción
+                </label>
+                <textarea
+                  value={formData.descripcion}
+                  onChange={(e) => setFormData({ ...formData, descripcion: e.target.value })}
+                  rows={3}
+                  style={{
+                    width: '100%', padding: '0.75rem 1rem', border: '1px solid var(--color-background)',
+                    borderRadius: '0.5rem', fontSize: '1rem', color: 'var(--color-text)', resize: 'none'
+                  }}
+                  placeholder="Breve descripción de la categoría..."
+                />
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <input
                   type="checkbox"
                   id="activo-cat"
                   checked={formData.activo}
                   onChange={(e) => setFormData({ ...formData, activo: e.target.checked })}
-                  className="admin-categorias__checkbox"
+                  style={{
+                    width: '1.25rem', height: '1.25rem', accentColor: 'var(--color-accent)',
+                    border: '1px solid var(--color-background)', borderRadius: '0.25rem', cursor: 'pointer'
+                  }}
                 />
-                <label htmlFor="activo-cat" className="admin-categorias__form-label">Categoría activa</label>
+                <label htmlFor="activo-cat" style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-dark)' }}>
+                  Categoría activa
+                </label>
               </div>
 
-              <div className="admin-categorias__info-box">
-                <p className="admin-categorias__info-text">
-                  <strong>Nota:</strong> Las categorías te permiten organizar tus productos por género u otras clasificaciones.
+              <div style={{
+                background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.2)',
+                borderRadius: '0.5rem', padding: '1rem'
+              }}>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text)', margin: 0 }}>
+                  <strong>Nota:</strong> Las categorías organizan tus productos por tipo (Huipiles, Blusas, rebozos, etc.). 
                 </p>
               </div>
 
-              <div className="admin-categorias__modal-actions">
-                <button type="button" onClick={handleCloseModal} className="admin-categorias__btn-cancel">Cancelar</button>
-                <button type="button" onClick={handleSubmit} className="admin-categorias__btn-submit">
+              <div style={{ display: 'flex', gap: '0.75rem', paddingTop: '1rem' }}>
+                <button type="button" onClick={handleCloseModal} style={{
+                  flex: 1, padding: '0.75rem 1.5rem', border: '1px solid var(--color-background)',
+                  color: 'var(--color-text)', background: 'var(--color-white)',
+                  borderRadius: '0.5rem', cursor: 'pointer', fontWeight: 500, transition: 'all 0.3s'
+                }}>
+                  Cancelar
+                </button>
+                <button type="button" onClick={handleSubmit} style={{
+                  flex: 1, padding: '0.75rem 1.5rem',
+                  background: 'linear-gradient(to right, var(--color-accent), #2563eb)',
+                  color: 'var(--color-white)', border: 'none', borderRadius: '0.5rem',
+                  cursor: 'pointer', fontWeight: 600, boxShadow: '0 4px 6px rgba(59, 130, 246, 0.2)',
+                  transition: 'all 0.3s'
+                }}>
                   {editingCat ? 'Actualizar' : 'Crear'} Categoría
                 </button>
               </div>
@@ -466,83 +595,107 @@ export default function AdminCategorias() {
 
       {/* Modal Detalle Producto */}
       {detalleModalOpen && productoSeleccionado && (
-        <div className="admin-categorias__modal-overlay" style={{zIndex: 60}}>
-          <div className="admin-categorias__modal" style={{maxWidth: '900px'}}>
-            <div className="admin-categorias__modal-header">
-              <h2 className="admin-categorias__modal-title">Detalles del Producto</h2>
-              <button onClick={() => setDetalleModalOpen(false)} className="admin-categorias__modal-close">
-                <X className="w-6 h-6" />
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(30, 41, 59, 0.5)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '1rem', zIndex: 60, backdropFilter: 'blur(4px)'
+        }}>
+          <div style={{
+            background: 'var(--color-white)', borderRadius: '1rem',
+            boxShadow: '0 25px 50px rgba(30, 41, 59, 0.3)',
+            maxWidth: '900px', width: '100%', maxHeight: '90vh', overflow: 'auto'
+          }}>
+            <div style={{
+              position: 'sticky', top: 0, background: 'var(--color-white)',
+              borderBottom: '1px solid var(--color-background)', padding: '1rem 1.5rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', zIndex: 10
+            }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: 0 }}>
+                Detalles del Producto
+              </h2>
+              <button onClick={() => setDetalleModalOpen(false)} style={{
+                color: 'var(--color-text)', background: 'none', border: 'none',
+                cursor: 'pointer', padding: 0, transition: 'color 0.3s'
+              }}>
+                <X size={24} />
               </button>
             </div>
 
-            <div className="admin-categorias__modal-body">
-              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem'}}>
+            <div style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth >= 768 ? '1fr 1fr' : '1fr', gap: '2rem' }}>
                 <div>
                   <img 
                     src={productoSeleccionado.imagen} 
                     alt={productoSeleccionado.nombre}
                     style={{
-                      width: '100%',
-                      height: '400px',
-                      objectFit: 'cover',
-                      borderRadius: '0.75rem',
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                      width: '100%', height: '400px', objectFit: 'cover',
+                      borderRadius: '0.75rem', boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                     }}
                   />
-                  <div style={{marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap'}}>
-                    <span className={`admin-categorias__product-badge ${productoSeleccionado.stock > 0 ? 'admin-categorias__product-badge--stock' : 'admin-categorias__product-badge--out'}`}>
+                  <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <span style={{
+                      padding: '0.25rem 0.75rem', borderRadius: '9999px',
+                      fontSize: '0.75rem', fontWeight: 600,
+                      background: productoSeleccionado.stock > 0 ? 'rgba(16, 185, 129, 0.9)' : 'rgba(239, 68, 68, 0.9)',
+                      color: 'var(--color-white)'
+                    }}>
                       {productoSeleccionado.stock > 0 ? `Stock: ${productoSeleccionado.stock}` : 'AGOTADO'}
                     </span>
-                    <span className="admin-categorias__product-badge admin-categorias__product-badge--category">
-                      {productoSeleccionado.categoriaNombre}
-                    </span>
-                    <span className="admin-categorias__product-dept">
+                    <span style={{
+                      padding: '0.25rem 0.75rem', borderRadius: '9999px',
+                      fontSize: '0.75rem', fontWeight: 600,
+                      background: 'rgba(59, 130, 246, 0.9)', color: 'var(--color-white)'
+                    }}>
                       {productoSeleccionado.departamento}
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-accent)',
+                      background: 'rgba(59, 130, 246, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '0.25rem'
+                    }}>
+                      {productoSeleccionado.categoriaNombre}
                     </span>
                   </div>
                 </div>
 
-                <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   <div>
-                    <h3 style={{fontSize: '1.875rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: '0 0 0.5rem 0'}}>
+                    <h3 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: 'var(--color-dark)', margin: '0 0 0.5rem 0' }}>
                       {productoSeleccionado.nombre}
                     </h3>
-                    <p style={{fontSize: '1rem', color: 'var(--color-text)', lineHeight: '1.6'}}>
+                    <p style={{ fontSize: '1rem', color: 'var(--color-text)', lineHeight: '1.6' }}>
                       {productoSeleccionado.descripcion}
                     </p>
                   </div>
 
                   <div style={{
-                    background: 'var(--color-light)',
-                    padding: '1.5rem',
-                    borderRadius: '0.75rem',
-                    border: '1px solid var(--color-background)'
+                    background: 'var(--color-light)', padding: '1.5rem',
+                    borderRadius: '0.75rem', border: '1px solid var(--color-background)'
                   }}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem'}}>
-                      <Scissors style={{width: '1.25rem', height: '1.25rem', color: 'var(--color-accent)'}} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                      <Scissors size={20} color="var(--color-accent)" />
                       <div>
-                        <p style={{fontSize: '0.75rem', color: 'var(--color-text)', margin: 0}}>Técnica</p>
-                        <p style={{fontSize: '1rem', fontWeight: '600', color: 'var(--color-dark)', margin: 0}}>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--color-text)', margin: 0 }}>Técnica</p>
+                        <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-dark)', margin: 0 }}>
                           {productoSeleccionado.tecnica}
                         </p>
                       </div>
                     </div>
 
-                    <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem'}}>
-                      <MapPin style={{width: '1.25rem', height: '1.25rem', color: 'var(--color-accent)'}} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                      <MapPin size={20} color="var(--color-accent)" />
                       <div>
-                        <p style={{fontSize: '0.75rem', color: 'var(--color-text)', margin: 0}}>Origen</p>
-                        <p style={{fontSize: '1rem', fontWeight: '600', color: 'var(--color-dark)', margin: 0}}>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--color-text)', margin: 0 }}>Origen</p>
+                        <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-dark)', margin: 0 }}>
                           {productoSeleccionado.origen}
                         </p>
                       </div>
                     </div>
 
-                    <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-                      <Sparkles style={{width: '1.25rem', height: '1.25rem', color: 'var(--color-accent)'}} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <Sparkles size={20} color="var(--color-accent)" />
                       <div>
-                        <p style={{fontSize: '0.75rem', color: 'var(--color-text)', margin: 0}}>Materiales</p>
-                        <p style={{fontSize: '1rem', fontWeight: '600', color: 'var(--color-dark)', margin: 0}}>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--color-text)', margin: 0 }}>Materiales</p>
+                        <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-dark)', margin: 0 }}>
                           {productoSeleccionado.materiales}
                         </p>
                       </div>
@@ -550,159 +703,21 @@ export default function AdminCategorias() {
                   </div>
 
                   <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                     padding: '1.5rem',
                     background: 'linear-gradient(135deg, var(--color-accent-light), var(--color-accent))',
                     borderRadius: '0.75rem'
                   }}>
                     <div>
-                      <p style={{fontSize: '0.875rem', color: 'white', opacity: 0.9, margin: 0}}>Precio</p>
-                      <p style={{fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0}}>
+                      <p style={{ fontSize: '0.875rem', color: 'white', opacity: 0.9, margin: 0 }}>Precio</p>
+                      <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0 }}>
                         ${productoSeleccionado.precio.toLocaleString('es-MX')}
                       </p>
-                      <p style={{fontSize: '0.875rem', color: 'white', opacity: 0.8, margin: 0}}>MXN</p>
+                      <p style={{ fontSize: '0.875rem', color: 'white', opacity: 0.8, margin: 0 }}>MXN</p>
                     </div>
-                    <Package style={{width: '3rem', height: '3rem', color: 'white', opacity: 0.3}} />
+                    <Package size={48} color="white" style={{ opacity: 0.3 }} />
                   </div>
-
-                  <button
-                    onClick={() => {
-                      setDetalleModalOpen(false);
-                      handleGestionarStock(productoSeleccionado);
-                    }}
-                    style={{
-                      width: '100%',
-                      padding: '1rem',
-                      background: 'linear-gradient(to right, var(--color-accent), #2563eb)',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '0.5rem',
-                      fontWeight: '600',
-                      fontSize: '1rem',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem',
-                      transition: 'all 0.3s'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 10px 20px rgba(59, 130, 246, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  >
-                    <Package style={{width: '1.25rem', height: '1.25rem'}} />
-                    Gestionar Stock
-                  </button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal Gestión de Stock */}
-      {stockModalOpen && productoSeleccionado && (
-        <div className="admin-categorias__modal-overlay" style={{zIndex: 70}}>
-          <div className="admin-categorias__modal">
-            <div className="admin-categorias__modal-header">
-              <h2 className="admin-categorias__modal-title">Gestión de Stock</h2>
-              <button onClick={() => setStockModalOpen(false)} className="admin-categorias__modal-close">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="admin-categorias__modal-body">
-              <div style={{
-                background: 'var(--color-light)',
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginBottom: '1.5rem',
-                border: '1px solid var(--color-background)'
-              }}>
-                <h4 style={{margin: '0 0 0.5rem 0', fontWeight: '600', color: 'var(--color-dark)'}}>
-                  {productoSeleccionado.nombre}
-                </h4>
-                <p style={{margin: 0, fontSize: '0.875rem', color: 'var(--color-text)'}}>
-                  Departamento: {productoSeleccionado.departamento} • Categoría: {productoSeleccionado.categoriaNombre}
-                </p>
-              </div>
-
-              <div className="admin-categorias__form-group">
-                <label className="admin-categorias__form-label">
-                  Stock Disponible *
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  value={stockForm.stock}
-                  onChange={(e) => setStockForm({ ...stockForm, stock: parseInt(e.target.value) || 0 })}
-                  className="admin-categorias__form-input"
-                  placeholder="0"
-                />
-                <p className="admin-categorias__form-hint">
-                  El producto se mostrará como "AGOTADO" automáticamente cuando el stock sea 0
-                </p>
-              </div>
-
-              <div className="admin-categorias__checkbox-group">
-                <input
-                  type="checkbox"
-                  id="activo-producto"
-                  checked={stockForm.activo}
-                  onChange={(e) => setStockForm({ ...stockForm, activo: e.target.checked })}
-                  className="admin-categorias__checkbox"
-                />
-                <label htmlFor="activo-producto" className="admin-categorias__form-label">
-                  Producto activo (visible en el catálogo)
-                </label>
-              </div>
-
-              <div className="admin-categorias__info-box">
-                <p className="admin-categorias__info-text">
-                  <strong>Estado Automático:</strong> El sistema detecta automáticamente cuando un producto está agotado (stock = 0).
-                  Puedes desactivar manualmente un producto aunque tenga stock disponible.
-                </p>
-              </div>
-
-              <div style={{
-                background: stockForm.stock === 0 ? 'rgba(239, 68, 68, 0.1)' : 'rgba(16, 185, 129, 0.1)',
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                border: `1px solid ${stockForm.stock === 0 ? 'rgba(239, 68, 68, 0.3)' : 'rgba(16, 185, 129, 0.3)'}`,
-                marginTop: '1rem'
-              }}>
-                <p style={{
-                  margin: 0,
-                  fontSize: '0.875rem',
-                  fontWeight: '600',
-                  color: stockForm.stock === 0 ? '#ef4444' : '#10b981'
-                }}>
-                  Estado actual: {stockForm.stock === 0 ? 'AGOTADO' : `${stockForm.stock} unidades disponibles`}
-                </p>
-              </div>
-
-              <div className="admin-categorias__modal-actions">
-                <button
-                  type="button"
-                  onClick={() => setStockModalOpen(false)}
-                  className="admin-categorias__btn-cancel"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="button"
-                  onClick={handleActualizarStock}
-                  className="admin-categorias__btn-submit"
-                >
-                  Actualizar Stock
-                </button>
               </div>
             </div>
           </div>
