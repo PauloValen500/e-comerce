@@ -11,6 +11,11 @@ import SignUpRedirect from "../pages/auth/SignUpRedirect";
 import SignOutRedirect from "../pages/auth/SignOutRedirect";
 import DashboardLayout from "../Components/DashboardLayout";
 
+import UserCategoria from "../pages/usuario/UserCategoria";
+import UserDepartamento from "../pages/usuario/UserDepartamento";
+import UserProductosHombre from "../pages/usuario/UserProductosHombre";
+import UserProductosMujer from "../pages/usuario/UserProductosMujer";
+
 // Importar las vistas de productos por categoría
 import ProductoCategoria from "../pages/usuario/productos/ProductoCategoria";
 import ProductosBlusas from "../pages/usuario/productos/ProductosBlusas";
@@ -49,6 +54,11 @@ export default function AppRoutes() {
           <Route path="/productos/guayaberas" element={<ProductosGuayaberas />} />
           <Route path="/productos/faldas" element={<ProductosFaldas />} />
           <Route path="/productos/quechquemitl" element={<ProductosQuechquemitl />} />
+
+          <Route path="/usercategoria" element={<UserCategoria />} />
+          <Route path="/userdepartamento" element={<UserDepartamento />} />
+          <Route path="/userproductoshombre" element={<UserProductosHombre />} />
+          <Route path="/userproductomujer" element={<UserProductosMujer />} />
 
           {/* Solo admin (chequeo extra de grupos) */}
           <Route

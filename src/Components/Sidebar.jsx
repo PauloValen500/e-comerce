@@ -40,6 +40,8 @@ export default function Sidebar({ open, onClose }) {
         <nav className="px-3 py-2 space-y-1">
           <Item to="/" icon={<FiHome />} label="Inicio" />
           <Item to="/catalogo" icon={<FiShoppingBag />} label="Catálogo" />
+          <Item to="/usercategoria" icon={<FiShoppingBag />} label="Categoria" />
+          <Item to="/userdepartamento" icon={<FiShoppingBag />} label="Departamento" />
           {/* Solo botones (no cambian vista por ahora) */}
           <Dummy icon={<FiList />} label="Mis Órdenes" />
           <Dummy icon={<FiUser />} label="Perfil" />

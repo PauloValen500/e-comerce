@@ -1,12 +1,9 @@
-// UserCategoria.jsx - ACTUALIZADO con navegación correcta
-
 import { ArrowRight, Package, MapPin, Scissors, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import './UserCategoria.css';
 
 export default function UserCategoria() {
   const navigate = useNavigate();
-
+  
   const categorias = [
     {
       id: 1,
@@ -81,137 +78,119 @@ export default function UserCategoria() {
   };
 
   return (
-    <div className="user-categoria">
-      {/* Hero Section */}
-      <div className="user-categoria__hero">
-        <div className="user-categoria__hero-content">
-          <h1 className="user-categoria__hero-title">Explora Nuestras Categorías</h1>
-          <p className="user-categoria__hero-subtitle">
-            Descubre piezas únicas organizadas por tipo de producto artesanal
-          </p>
-        </div>
+    <div className="space-y-6 mt-2">
+      <div className="flex flex-col gap-4">
+        <h2 className="text-2xl font-semibold text-gray-800">Explora Nuestras Categorías</h2>
+        <p className="text-gray-600">Descubre piezas únicas organizadas por tipo de producto artesanal</p>
       </div>
 
-      {/* Main Content */}
-      <div className="user-categoria__main">
-        {/* Category Cards */}
-        <div className="user-categoria__categories-grid">
-          {categorias.map((categoria) => (
-            <div 
-              key={categoria.id} 
-              className="user-categoria__category-card"
-              onClick={() => handleNavigateCategoria(categoria.ruta)}
-            >
-              <div className="user-categoria__category-image-wrapper">
-                <img 
-                  src={categoria.imagen} 
-                  alt={categoria.nombre}
-                  className="user-categoria__category-image"
-                />
-                <div className="user-categoria__category-overlay">
-                  <h2 className="user-categoria__category-label">{categoria.nombre}</h2>
-                </div>
-              </div>
-
-              <div className="user-categoria__category-body">
-                <p className="user-categoria__category-desc">{categoria.descripcion}</p>
-
-                <div className="user-categoria__category-stats">
-                  <div className="user-categoria__category-stats-row">
-                    <div className="user-categoria__category-stat">
-                      <p className="user-categoria__category-stat-value">{categoria.totalProductos}</p>
-                      <p className="user-categoria__category-stat-label">Productos</p>
-                    </div>
-                    <div className="user-categoria__category-stat">
-                      <p className="user-categoria__category-stat-value">{categoria.coloresDisponibles}</p>
-                      <p className="user-categoria__category-stat-label">Colores</p>
-                    </div>
-                  </div>
-                  <div className="user-categoria__category-stats-row">
-                    <div className="user-categoria__category-stat">
-                      <p className="user-categoria__category-stat-value">{categoria.rangoPrecios}</p>
-                      <p className="user-categoria__category-stat-label">Rango Precio</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="user-categoria__category-techniques">
-                  <p className="user-categoria__category-techniques-title">Técnicas artesanales:</p>
-                  <div className="user-categoria__category-techniques-list">
-                    {categoria.tecnicas.map((tecnica, idx) => (
-                      <span key={idx} className="user-categoria__category-technique-tag">
-                        {tecnica}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNavigateCategoria(categoria.ruta);
-                  }}
-                  className="user-categoria__category-btn"
-                >
-                  Ver {categoria.nombre}
-                  <ArrowRight size={20} />
-                </button>
+      <div className="grid gap-6 [grid-template-columns:repeat(auto-fill,minmax(350px,1fr))]">
+        {categorias.map((categoria) => (
+          <div 
+            key={categoria.id} 
+            className="bg-white rounded-2xl overflow-hidden shadow-[0_3px_6px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.12)] transition cursor-pointer"
+            onClick={() => handleNavigateCategoria(categoria.ruta)}
+          >
+            <div className="relative h-[300px] overflow-hidden group">
+              <img 
+                src={categoria.imagen} 
+                alt={categoria.nombre}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/70 flex items-end p-6">
+                <h3 className="text-3xl font-bold text-white drop-shadow-lg">{categoria.nombre}</h3>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Info Section */}
-        <div className="user-categoria__info">
-          <h2 className="user-categoria__info-title">
-            Nuestras Categorías Artesanales
-          </h2>
-          <p className="user-categoria__info-text">
+            <div className="p-4 space-y-3">
+              <p className="text-sm text-gray-600 leading-relaxed">{categoria.descripcion}</p>
+
+              <div className="space-y-2">
+                <div className="flex justify-around items-center gap-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-blue-600 leading-none">{categoria.totalProductos}</p>
+                    <p className="text-[10px] text-gray-700 uppercase tracking-wider mt-0.5 font-semibold">Productos</p>
+                  </div>
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-purple-600 leading-none">{categoria.coloresDisponibles}</p>
+                    <p className="text-[10px] text-gray-700 uppercase tracking-wider mt-0.5 font-semibold">Colores</p>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
+                  <div className="text-center flex-1">
+                    <p className="text-xl font-bold text-emerald-600 leading-none">{categoria.rangoPrecios}</p>
+                    <p className="text-[10px] text-gray-700 uppercase tracking-wider mt-0.5 font-semibold">Rango Precio</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold text-gray-700 mb-2">Técnicas artesanales:</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {categoria.tecnicas.map((tecnica, idx) => (
+                    <span key={idx} className="text-[10px] px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full font-medium">
+                      {tecnica}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNavigateCategoria(categoria.ruta);
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition font-semibold"
+              >
+                Ver {categoria.nombre}
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-white rounded-2xl p-8 shadow-[0_3px_6px_rgba(0,0,0,0.08)] space-y-6">
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl font-semibold text-gray-800">Nuestras Categorías Artesanales</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Cada categoría representa una tradición única de Oaxaca. Desde huipiles ceremoniales 
             hasta rebozos tejidos a mano, cada pieza es creada con técnicas ancestrales transmitidas 
             por generaciones de artesanos oaxaqueños.
           </p>
+        </div>
 
-          <div className="user-categoria__info-features">
-            <div className="user-categoria__info-feature">
-              <div className="user-categoria__info-icon">
-                <Scissors size={24} />
-              </div>
-              <h3 className="user-categoria__info-feature-title">Técnicas Ancestrales</h3>
-              <p className="user-categoria__info-feature-desc">
-                Bordados a mano y tejidos en telar tradicional
-              </p>
+        <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] mt-6">
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+              <Scissors size={22} />
             </div>
+            <h3 className="text-sm font-semibold text-gray-800">Técnicas Ancestrales</h3>
+            <p className="text-xs text-gray-600">Bordados a mano y tejidos en telar tradicional</p>
+          </div>
 
-            <div className="user-categoria__info-feature">
-              <div className="user-categoria__info-icon">
-                <Sparkles size={24} />
-              </div>
-              <h3 className="user-categoria__info-feature-title">Diseños Únicos</h3>
-              <p className="user-categoria__info-feature-desc">
-                Cada pieza es una obra de arte irrepetible
-              </p>
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+              <Sparkles size={22} />
             </div>
+            <h3 className="text-sm font-semibold text-gray-800">Diseños Únicos</h3>
+            <p className="text-xs text-gray-600">Cada pieza es una obra de arte irrepetible</p>
+          </div>
 
-            <div className="user-categoria__info-feature">
-              <div className="user-categoria__info-icon">
-                <MapPin size={24} />
-              </div>
-              <h3 className="user-categoria__info-feature-title">Origen Certificado</h3>
-              <p className="user-categoria__info-feature-desc">
-                Directo de comunidades artesanales de Oaxaca
-              </p>
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+              <MapPin size={22} />
             </div>
+            <h3 className="text-sm font-semibold text-gray-800">Origen Certificado</h3>
+            <p className="text-xs text-gray-600">Directo de comunidades artesanales de Oaxaca</p>
+          </div>
 
-            <div className="user-categoria__info-feature">
-              <div className="user-categoria__info-icon">
-                <Package size={24} />
-              </div>
-              <h3 className="user-categoria__info-feature-title">Calidad Premium</h3>
-              <p className="user-categoria__info-feature-desc">
-                Materiales naturales de la más alta calidad
-              </p>
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+              <Package size={22} />
             </div>
+            <h3 className="text-sm font-semibold text-gray-800">Calidad Premium</h3>
+            <p className="text-xs text-gray-600">Materiales naturales de la más alta calidad</p>
           </div>
         </div>
       </div>

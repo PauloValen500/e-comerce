@@ -5,7 +5,7 @@ export default function ProductosBlusas() {
   const [categoriaActual] = useState({
     id: 2,
     nombre: 'Blusas Bordadas Istmeñas',
-    descripcion: 'Blusas con flores bordadas tradicionales. Cada pieza representa la belleza y tradición de las tehuanas oaxaqueñas',
+    descripcion: 'Blusas con flores bordadas tradicionales. Cada pieza representa la belleza y tradición de las tehuanas oaxaqueñas.',
   });
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +23,6 @@ export default function ProductosBlusas() {
       tecnica: 'Bordado a máquina sobre terciopelo',
       origen: 'Juchitán, Istmo de Tehuantepec',
       materiales: 'Terciopelo negro, hilos de seda roja y rosa',
-      tiempoElaboracion: '2-3 semanas',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     },
     {
@@ -36,7 +35,6 @@ export default function ProductosBlusas() {
       tecnica: 'Bordado a mano con punto de cruz',
       origen: 'Ixtaltepec, Istmo de Tehuantepec',
       materiales: 'Manta blanca, hilos de algodón multicolor',
-      tiempoElaboracion: '2-3 semanas',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     },
     {
@@ -49,7 +47,6 @@ export default function ProductosBlusas() {
       tecnica: 'Bordado en satín sobre popelina',
       origen: 'Espinal, Istmo de Tehuantepec',
       materiales: 'Popelina azul marino, hilos de seda',
-      tiempoElaboracion: '3-4 semanas',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     },
     {
@@ -62,7 +59,6 @@ export default function ProductosBlusas() {
       tecnica: 'Bordado con cadeneta y punto lleno',
       origen: 'Unión Hidalgo, Istmo de Tehuantepec',
       materiales: 'Satín verde, hilos metálicos y de seda',
-      tiempoElaboracion: '3-4 semanas',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     },
     {
@@ -75,7 +71,6 @@ export default function ProductosBlusas() {
       tecnica: 'Bordado en realce con aplicaciones',
       origen: 'Santo Domingo Ingenio, Istmo',
       materiales: 'Terciopelo morado, hilos multicolor, lentejuelas',
-      tiempoElaboracion: '4-5 semanas',
       imagen: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop'
     }
   ];
