@@ -60,6 +60,7 @@ export default function AppRoutes() {
           <Route path="/userproductoshombre" element={<UserProductosHombre />} />
           <Route path="/userproductomujer" element={<UserProductosMujer />} />
 
+
           {/* Solo admin (chequeo extra de grupos) */}
           <Route
             path="/categoria"
